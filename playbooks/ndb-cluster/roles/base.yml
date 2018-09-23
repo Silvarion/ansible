@@ -43,7 +43,7 @@
       mode: u=rwx,g=rwx,o=rwx
       owner: ansible
   - name: Unarchive MySQL Cluster Community
-    command: tar -xvf --overwrite mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
+    command: tar -xvf mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar --overwrite
     args:
       chdir: /tmp
   - name: Install MySQL Cluster Common RPM
