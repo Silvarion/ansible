@@ -41,6 +41,7 @@
     file:
       name: /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
       mode: u=rwx,g=rwx,o=rwx
+      owner: ansible
   - name: Unarchive MySQL Cluster Community
     command: tar-xvf mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
     args:
