@@ -7,7 +7,7 @@
   connection: ssh
   gather_facts: yes
   tasks:
-  - name: Ensure the mysql group exists
+  -name: Ensure the mysql group exists
     group:
       name: mysql
       state: present
