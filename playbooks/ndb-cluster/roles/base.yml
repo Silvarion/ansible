@@ -35,7 +35,7 @@
       dest: /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
   - name: Unarchive MySQL Cluster Community
     unarchive:
-      source: /temp/MySQL-Cluster-7.6/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
+      src: /temp/MySQL-Cluster-7.6/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
       dest: /tmp
   - name: Install MySQL Cluster Common RPM
     yum:
