@@ -41,10 +41,11 @@
     file:
       name: /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
       mode: u=rwx,g=rwx,o=rwx
+  - name: Change dir to /tmp
+    command:
+      chdir: /tmp
   - name: Unarchive MySQL Cluster Community
-    unarchive:
-      src: /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
-      dest: /tmp/
+    command: tar-xvf /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
   - name: Install MySQL Cluster Common RPM
     yum:
       name: /tmp/mysql-cluster-community-common-7.6.7-1.el7.x86_64.rpm
