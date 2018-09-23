@@ -32,7 +32,7 @@
   - name: Download MySQL Cluster Community
     get_url:
       url: https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
-      dest: /temp/MySQL-Cluster-7.6/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
+      dest: /temp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
   - name: Unarchive MySQL Cluster Community
     unarchive:
       source: /temp/MySQL-Cluster-7.6/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
