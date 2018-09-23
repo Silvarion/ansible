@@ -29,9 +29,13 @@
       state: directory
   - name: Write the ndb cluster config file
     template:
-      src: /files/linuxacademy_config.ini
+      src: config.ini
       dest: /var/lib/mysql-cluster/config.ini
   - name: Write the my.cnf config file
     template:
-      src: //linuxacademy_config.ini
-      dest: /var/lib/mysql-cluster/config.ini
+      src: my.cnf
+      dest: /etc/my.cnf
+  - name: Write the etc hosts config file
+    template:
+      src: hosts
+      dest: /etc/hosts
