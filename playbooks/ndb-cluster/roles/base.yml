@@ -31,13 +31,13 @@
       state: directory
   - name: Write the ndb cluster config file
     template:
-      src: config.ini
+      src: ndb-cluster/templates/config.ini
       dest: /var/lib/mysql-cluster/config.ini
   - name: Write the my.cnf config file
     template:
-      src: my.cnf
+      src: ndb-cluster/templates/my.cnf
       dest: /etc/my.cnf
   - name: Write the etc hosts config file
     template:
-      src: hosts
+      src: ndb-cluster/templates/hosts
       dest: /etc/hosts
