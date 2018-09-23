@@ -42,11 +42,8 @@
       name: /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
       mode: u=rwx,g=rwx,o=rwx
       owner: ansible
-  - name: Remove RPMs
-    file: mysql-cluster*.rpm
-    state: absent
   - name: Unarchive MySQL Cluster Community
-    command: tar -xvf mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
+    command: tar -xvf --overwrite mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
     args:
       chdir: /tmp
   - name: Install MySQL Cluster Common RPM
