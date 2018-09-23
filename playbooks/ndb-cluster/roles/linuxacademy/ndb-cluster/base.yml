@@ -1,0 +1,18 @@
+- hosts: ndb-cluster
+  tasks:
+  - name: Ensure the mysql group exists
+    group:
+      name: mysql
+      state: present
+  -name: Ensure the mysql user exists
+    user:
+      name: mysql
+      state: present
+  -name: Create ndb cluster directory
+    file:
+      path: /var/lib/mysql-cluster
+      state: directory
+  -name: Write the ndb cluster config file
+    template:
+      src: /files/linuxacademy_config.ini
+      dest: /var/lib/mysql-cluster/config.ini
