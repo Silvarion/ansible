@@ -37,35 +37,35 @@
     unarchive:
       source: /temp/MySQL-Cluster-7.6/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
       dest: /tmp
-  -name: Install MySQL Cluster Common RPM
+  - name: Install MySQL Cluster Common RPM
     yum:
       name: /tmp/mysql-cluster-community-common-7.6.7-1.el7.x86_64.rpm
       state: present
-  -name: Install MySQL Cluster Libs RPM
+  - name: Install MySQL Cluster Libs RPM
     yum:
       name: /tmp/mysql-cluster-community-libs-7.6.7-1.el7.x86_64.rpm
       state: present
-  -name: Install MySQL Cluster Client RPM
+  - name: Install MySQL Cluster Client RPM
     yum:
       name: /tmp/mysql-cluster-community-client-7.6.7-1.el7.x86_64.rpm
       state: present
-  -name: Install MySQL Cluster Server RPM
+  - name: Install MySQL Cluster Server RPM
     yum:
       name: /tmp/mysql-cluster-community-server-7.6.7-1.el7.x86_64.rpm
       state: present
-  -name: Install MySQL Cluster Data Node RPM
+  - name: Install MySQL Cluster Data Node RPM
     yum:
       name: /tmp/mysql-cluster-community-data-node-7.6.7-1.el7.x86_64.rpm
       state: present
-  -name: Install MySQL Cluster MemCache RPM
+  - name: Install MySQL Cluster MemCache RPM
     yum:
       name: /tmp/mysql-cluster-community-memcached-7.6.7-1.el7.x86_64.rpm
       state: present
-  -name: Install MySQL Cluster Management Server RPM
+  - name: Install MySQL Cluster Management Server RPM
     yum:
       name: /tmp/mysql-cluster-community-management-server-7.6.7-1.el7.x86_64.rpm
       state: present
-  -name: Install MySQL Cluster Common RPM
+  - name: Install MySQL Cluster Common RPM
     yum:
       name: /tmp/mysql-cluster-community-ndbclient-7.6.7-1.el7.x86_64.rpm
       state: present
