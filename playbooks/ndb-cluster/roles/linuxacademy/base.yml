@@ -7,31 +7,31 @@
   connection: ssh
   gather_facts: yes
   tasks:
-  -name: Ensure the mysql group exists
+  - name: Ensure the mysql group exists
     group:
       name: mysql
       state: present
-  -name: Ensure the mysql user exists
+  - name: Ensure the mysql user exists
     user:
       name: mysql
       state: present
-  -name: Download MySQL Repository
+  - name: Download MySQL Repository
     get_url:
       url: https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
       dest: /tmp/mysql80-community-release-el7-1.noarch.rpm
-  -name: Install MySQL Repo
+  - name: Install MySQL Repo
     yum:
       name: /tmp/mysql80-community-release-el7-1.noarch.rpm
       state: present
-  -name: Create ndb cluster directory
+  - name: Create ndb cluster directory
     file:
       path: /var/lib/mysql-cluster
       state: directory
-  -name: Write the ndb cluster config file
+  - name: Write the ndb cluster config file
     template:
       src: /files/linuxacademy_config.ini
       dest: /var/lib/mysql-cluster/config.ini
-  -name: Write the my.cnf config file
+  - name: Write the my.cnf config file
     template:
       src: //linuxacademy_config.ini
       dest: /var/lib/mysql-cluster/config.ini
