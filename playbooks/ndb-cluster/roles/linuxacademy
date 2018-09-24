@@ -19,3 +19,6 @@ jsanchez-ve4.mylabserver.com
 [ndb-cluster-sql]
 jsanchez-ve1.mylabserver.com
 jsanchez-ve2.mylabserver.com
+
+[ndb-router]
+jsanchez-ve5.mylabserver.com
