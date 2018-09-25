@@ -19,5 +19,5 @@
       state: present
   - name: Deploy config file
     template: 
-      src: templates/mysqlrouter.conf
+      src: ndb-cluster-router/templates/mysqlrouter.conf
       dest: /usr/local/mysql-rrouter/mysqlrouter.conf
