@@ -56,7 +56,6 @@
       - /tmp/mysql-cluster-community-memcached-7.6.7-1.el7.x86_64.rpm
       - /tmp/mysql-cluster-community-management-server-7.6.7-1.el7.x86_64.rpm
       - /tmp/mysql-cluster-community-ndbclient-7.6.7-1.el7.x86_64.rpm
-      state: present
   - name: Create ndb cluster directory
     file:
       path: /var/lib/mysql-cluster
