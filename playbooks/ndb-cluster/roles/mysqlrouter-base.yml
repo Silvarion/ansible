@@ -1,6 +1,6 @@
 --- # Install and configure MySQL Router
 
-- hosts: ndb-cluster
+- hosts: ndb-cluster-router
   remote_user: ansible
   become: yes
   become_method: sudo
