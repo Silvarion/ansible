@@ -21,6 +21,22 @@
     file: 
       path: /usr/local/mysql-router
       state: directory
+  - name: Download MySQL Repository
+    get_url:
+      url: https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+      dest: /tmp/mysql80-community-release-el7-1.noarch.rpm
+  - name: Install MySQL Repo
+    yum:
+      name: /tmp/mysql80-community-release-el7-1.noarch.rpm
+      state: present
+  - name: Make sure MariaDB Libs are removed
+    yum:
+      name: mariadb-libs
+      state: absent
+  - name: Install MySQL Server
+    yum:
+      name: mysql-server
+      state: present
   - name: Install MySQL Router
     yum:
       name: https://dev.mysql.com/get/Downloads/MySQL-Router/mysql-router-8.0.12-1.el7.x86_64.rpm
