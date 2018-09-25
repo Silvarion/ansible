@@ -20,4 +20,4 @@
   - name: Deploy config file
     template: 
       src: ndb-cluster-router/templates/mysqlrouter.conf
-      dest: /usr/local/mysql-rrouter/mysqlrouter.conf
+      dest: /usr/local/mysql-router/mysqlrouter.conf
