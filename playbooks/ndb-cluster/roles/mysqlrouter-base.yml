@@ -10,8 +10,9 @@
     - ndb-cluster-router
   tasks:
   - name: Create MySQL Router Config Directory
-    file: /usr/local/mysql-router
-    state: directory
+    file: 
+      path: /usr/local/mysql-router
+      state: directory
   - name: Install MySQL Router
     yum:
       name: https://dev.mysql.com/get/Downloads/MySQL-Router/mysql-router-8.0.12-1.el7.x86_64.rpm
