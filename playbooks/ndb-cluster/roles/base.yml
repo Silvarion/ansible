@@ -25,6 +25,7 @@
     - ndb-cluster-sql
     - ndb-cluster-data
     - ndb-cluster-mgm
+  tasks:
   - name: Install MySQL Repo
     yum:
       name: /tmp/mysql80-community-release-el7-1.noarch.rpm
