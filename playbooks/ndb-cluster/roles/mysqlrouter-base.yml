@@ -9,6 +9,14 @@
   roles: 
     - ndb-cluster-router
   tasks:
+  - name: Ensure the mysql group exists
+    group:
+      name: mysql
+      state: present
+  - name: Ensure the mysql user exists
+    user:
+      name: mysql
+      state: present
   - name: Create MySQL Router Config Directory
     file: 
       path: /usr/local/mysql-router
