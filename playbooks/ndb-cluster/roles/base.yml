@@ -48,6 +48,9 @@
       chdir: /tmp
   - name: Install MySQL Cluster RPM Packages
     yum:
+      name: {{ package }}
+    vars:
+      package:
       - /tmp/mysql-cluster-community-common-7.6.7-1.el7.x86_64.rpm
       - /tmp/mysql-cluster-community-libs-7.6.7-1.el7.x86_64.rpm
       - /tmp/mysql-cluster-community-client-7.6.7-1.el7.x86_64.rpm
