@@ -75,3 +75,4 @@
     template:
       src: ndb-cluster/templates/hosts
       dest: /etc/hosts
+  - include: ndb-cluster-router.yml
