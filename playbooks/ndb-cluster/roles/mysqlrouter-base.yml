@@ -29,6 +29,11 @@
     yum:
       name: /tmp/mysql80-community-release-el7-1.noarch.rpm
       state: present
+  - name: Stop and Disable the MySQL Service
+    systemd:
+      state: stopped
+      enabled: false
+      name: mysqld
   - name: Make sure MariaDB Libs are removed
     yum:
       name: mariadb-libs
