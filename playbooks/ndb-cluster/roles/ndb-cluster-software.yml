@@ -5,7 +5,7 @@
   become: yes
   become_method: sudo
   connection: ssh
-  gather_facts: no
+  gather_facts: yes
   roles: 
     - ndb-cluster-mgm
     - ndb-cluster-data
