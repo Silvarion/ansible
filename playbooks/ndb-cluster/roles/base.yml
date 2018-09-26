@@ -7,7 +7,9 @@
   connection: ssh
   gather_facts: yes
   roles: 
-    - ndb-cluster
+    - ndb-cluster-mgm
+    - ndb-cluster-data
+    - ndb-cluster-sql
   tasks:
   - name: Ensure the mysql group exists
     group:
