@@ -1,0 +1,10 @@
+- hosts: ndb-cluster-data
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles: 
+    - ndb-cluster-data
+  tasks:
+  - include ndb-cluster-software.yml

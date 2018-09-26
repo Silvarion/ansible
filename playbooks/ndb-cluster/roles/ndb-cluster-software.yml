@@ -7,9 +7,7 @@
   connection: ssh
   gather_facts: yes
   roles: 
-    - ndb-cluster-mgm
-    - ndb-cluster-data
-    - ndb-cluster-sql
+    - ndb-cluster
   tasks:
   - name: Download MySQL Cluster Community
     get_url:
