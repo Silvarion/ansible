@@ -1,3 +1,5 @@
+--- # Tryout to deploy a full NDB Cluster on CentOS 7
+
 - hosts: ndb-cluster-data
   remote_user: ansible
   become: yes
@@ -5,6 +7,6 @@
   connection: ssh
   gather_facts: yes
   roles: 
-    - ndb-cluster-data
+  - ndb-cluster-data
   tasks:
   - include ndb-cluster-software.yml
