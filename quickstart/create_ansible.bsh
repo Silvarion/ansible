@@ -23,3 +23,5 @@ ssh-copy-id ansible@jsanchez-ve1.mylabserver.com
 ssh-copy-id ansible@jsanchez-ve2.mylabserver.com
 ssh-copy-id ansible@jsanchez-ve3.mylabserver.com
 ssh-copy-id ansible@jsanchez-ve4.mylabserver.com
+ssh-copy-id ansible@jsanchez-ve5.mylabserver.com
+ssh-copy-id ansible@jsanchez-ve6.mylabserver.com

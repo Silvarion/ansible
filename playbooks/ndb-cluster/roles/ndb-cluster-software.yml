@@ -1,47 +1,53 @@
 --- # Tryout to deploy a full NDB Cluster on CentOS 7
 
-roles: 
-  - ndb-cluster
-tasks:
-- name: Download MySQL Cluster Community
-  get_url:
-    url: https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
-    dest: /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
-- name: Set file attributes to be able to access it
-  file:
-    name: /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
-    mode: u=rwx,g=rwx,o=rwx
-    owner: ansible
-- name: Unarchive MySQL Cluster Community
-  command: tar -xvf mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar --overwrite
-  args:
-    chdir: /tmp
-- name: Install MySQL Cluster RPM Packages
-  yum:
-    name: "{{ package }}"
-  vars:
-    package:
-    - /tmp/mysql-cluster-community-common-7.6.7-1.el7.x86_64.rpm
-    - /tmp/mysql-cluster-community-libs-7.6.7-1.el7.x86_64.rpm
-    - /tmp/mysql-cluster-community-client-7.6.7-1.el7.x86_64.rpm
-    - /tmp/mysql-cluster-community-server-7.6.7-1.el7.x86_64.rpm
-    - /tmp/mysql-cluster-community-data-node-7.6.7-1.el7.x86_64.rpm
-    - /tmp/mysql-cluster-community-memcached-7.6.7-1.el7.x86_64.rpm
-    - /tmp/mysql-cluster-community-management-server-7.6.7-1.el7.x86_64.rpm
-    - /tmp/mysql-cluster-community-ndbclient-7.6.7-1.el7.x86_64.rpm
-- name: Create ndb cluster directory
-  file:
-    path: /var/lib/mysql-cluster
-    state: directory
-- name: Write the ndb cluster config file
-  template:
-    src: ndb-cluster/templates/config.ini
-    dest: /var/lib/mysql-cluster/config.ini
-- name: Write the my.cnf config file
-  template:
-    src: ndb-cluster/templates/my.cnf
-    dest: /etc/my.cnf
-- name: Write the etc hosts config file
-  template:
-    src: ndb-cluster/templates/hosts
-    dest: /etc/hosts
+- hosts: ndb-cluster
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles: 
+    - ndb-cluster
+  tasks:
+  - name: Download MySQL Cluster Community
+    get_url:
+      url: https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
+      dest: /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
+  - name: Set file attributes to be able to access it
+    file:
+      name: /tmp/mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar
+      mode: u=rwx,g=rwx,o=rwx
+      owner: ansible
+  - name: Unarchive MySQL Cluster Community
+    command: tar -xvf mysql-cluster-community-7.6.7-1.el7.x86_64.rpm-bundle.tar --overwrite
+    args:
+      chdir: /tmp
+  - name: Install MySQL Cluster RPM Packages
+    yum:
+      name: "{{ package }}"
+    vars:
+      package:
+      - /tmp/mysql-cluster-community-common-7.6.7-1.el7.x86_64.rpm
+      - /tmp/mysql-cluster-community-libs-7.6.7-1.el7.x86_64.rpm
+      - /tmp/mysql-cluster-community-client-7.6.7-1.el7.x86_64.rpm
+      - /tmp/mysql-cluster-community-server-7.6.7-1.el7.x86_64.rpm
+      - /tmp/mysql-cluster-community-data-node-7.6.7-1.el7.x86_64.rpm
+      - /tmp/mysql-cluster-community-memcached-7.6.7-1.el7.x86_64.rpm
+      - /tmp/mysql-cluster-community-management-server-7.6.7-1.el7.x86_64.rpm
+      - /tmp/mysql-cluster-community-ndbclient-7.6.7-1.el7.x86_64.rpm
+  - name: Create ndb cluster directory
+    file:
+      path: /var/lib/mysql-cluster
+      state: directory
+  - name: Write the ndb cluster config file
+    template:
+      src: ndb-cluster/templates/config.ini
+      dest: /var/lib/mysql-cluster/config.ini
+  - name: Write the my.cnf config file
+    template:
+      src: ndb-cluster/templates/my.cnf
+      dest: /etc/my.cnf
+  - name: Write the etc hosts config file
+    template:
+      src: ndb-cluster/templates/hosts
+      dest: /etc/hosts
