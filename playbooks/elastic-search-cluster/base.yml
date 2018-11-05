@@ -1,0 +1,28 @@
+--- # Tryout to deploy a Elastic Search Cluster on CentOS 7
+
+- hosts: es-all-nodes
+  remote_user: cloud_user
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  ask_sudo_pass: yes
+  roles:
+    - base
+  tasks:
+  - name: Install Java OpenJDK 1.8.0
+    yum:
+      name: java-1.8.0-openjdk
+      state: present
+  - name: Import Elastic Search GPG-Key
+    rpm_key:
+    - key: https://artifacts.elasticsearch.co/GPG-KEY-elasticsearch
+    - state: present
+  - name: Elastic Search Repo file
+    template:
+      - src: base/templates/elasticsearch.repo
+      - dest: /etc/yum.repos.d/elasticsearch.repo
+  - name: Enable Elastic Search Repository
+    yum_repository:
+      - file: elasticsearch
+      - enable: yes
