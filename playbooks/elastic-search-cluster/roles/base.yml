@@ -24,4 +24,8 @@
   - name: Enable Elastic Search Repository
     yum_repository:
       file: elasticsearch
-      enable: yes
+      enabled: yes
+  - name: Install Elastic Search
+    yum:
+      name: elasticsearch
+      state: present
