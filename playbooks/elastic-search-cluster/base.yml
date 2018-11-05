@@ -15,13 +15,13 @@
       state: present
   - name: Import Elastic Search GPG-Key
     rpm_key:
-    - key: https://artifacts.elasticsearch.co/GPG-KEY-elasticsearch
-    - state: present
+      key: https://artifacts.elasticsearch.co/GPG-KEY-elasticsearch
+      state: present
   - name: Elastic Search Repo file
     template:
-      - src: base/templates/elasticsearch.repo
-      - dest: /etc/yum.repos.d/elasticsearch.repo
+      src: base/templates/elasticsearch.repo
+      dest: /etc/yum.repos.d/elasticsearch.repo
   - name: Enable Elastic Search Repository
     yum_repository:
-      - file: elasticsearch
-      - enable: yes
+      file: elasticsearch
+      enable: yes
