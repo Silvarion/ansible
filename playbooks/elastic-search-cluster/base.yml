@@ -6,7 +6,6 @@
   become_method: sudo
   connection: ssh
   gather_facts: yes
-  ask_sudo_pass: yes
   roles:
     - base
   tasks:
