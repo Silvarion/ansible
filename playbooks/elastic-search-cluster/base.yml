@@ -15,7 +15,7 @@
       state: present
   - name: Import Elastic Search GPG-Key
     rpm_key:
-      key: https://artifacts.elasticsearch.co/GPG-KEY-elasticsearch
+      key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
       state: present
   - name: Elastic Search Repo file
     template:
