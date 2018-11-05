@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Become root
 sudo su -
 
@@ -25,3 +26,32 @@ ssh-copy-id ansible@jsanchez-ve3.mylabserver.com
 ssh-copy-id ansible@jsanchez-ve4.mylabserver.com
 ssh-copy-id ansible@jsanchez-ve5.mylabserver.com
 ssh-copy-id ansible@jsanchez-ve6.mylabserver.com
+=======
+# Become root
+sudo su -
+
+# Install Ansible
+yum -y install python python-dev python-pip ansible
+
+# Edit /etc/ansible/hosts
+[group-name]
+hostname1
+hostname2
+
+# Create the ansible user
+adduser ansible
+passwd ansible
+
+## Add under root
+## ansible ALL=(ALL)       NOPASSWD: ALL
+visudo
+
+(ansible) ssh-keygen
+
+ssh-copy-id ansible@jsanchez-ve1.mylabserver.com
+ssh-copy-id ansible@jsanchez-ve2.mylabserver.com
+ssh-copy-id ansible@jsanchez-ve3.mylabserver.com
+ssh-copy-id ansible@jsanchez-ve4.mylabserver.com
+
+Th1s1s4ns1bl3
+>>>>>>> 192ad5e3c9d0bc5cde393bdeb9c5377080a86c94

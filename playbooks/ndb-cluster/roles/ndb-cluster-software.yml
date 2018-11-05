@@ -1,13 +1,17 @@
 --- # Tryout to deploy a full NDB Cluster on CentOS 7
-
 - hosts: ndb-cluster
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+- hosts: ndb-cluster-data
   remote_user: ansible
   become: yes
   become_method: sudo
   connection: ssh
   gather_facts: yes
   roles: 
-    - ndb-cluster
+  - ndb-cluster
   tasks:
   - name: Download MySQL Cluster Community
     get_url:
