@@ -23,6 +23,7 @@
       dest: /etc/yum.repos.d/elasticsearch.repo
   - name: Enable Elastic Search Repository
     yum_repository:
+      name: elasticsearch
       file: elasticsearch
       enabled: yes
   - name: Install Elastic Search
