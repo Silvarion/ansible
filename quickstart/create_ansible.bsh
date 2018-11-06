@@ -10,7 +10,7 @@ hostname1
 hostname2
 
 # Create the ansible user
-adduser ansible
+useradd -m -U -G wheel ansible
 passwd ansible
 
 ## Add under root
@@ -19,9 +19,9 @@ visudo
 
 (ansible) ssh-keygen
 
-ssh-copy-id ansible@jsanchez-ve1.mylabserver.com
-ssh-copy-id ansible@jsanchez-ve2.mylabserver.com
-ssh-copy-id ansible@jsanchez-ve3.mylabserver.com
-ssh-copy-id ansible@jsanchez-ve4.mylabserver.com
-
-Th1s1s4ns1bl3
+ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant1c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant2c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant3c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant4c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant5c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant6c.mylabserver.com
