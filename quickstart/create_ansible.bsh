@@ -25,3 +25,4 @@ ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant3c.mylabserver.com
 ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant4c.mylabserver.com
 ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant5c.mylabserver.com
 ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant6c.mylabserver.com
+
