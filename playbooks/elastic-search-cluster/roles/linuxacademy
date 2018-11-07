@@ -1,6 +1,5 @@
 [local]
 localhost
-jsanchezconsultant1c.mylabserver.com
 
 [es-all-nodes]
 jsanchezconsultant1c.mylabserver.com
@@ -11,7 +10,6 @@ jsanchezconsultant5c.mylabserver.com
 jsanchezconsultant6c.mylabserver.com
 
 [webserver]
-localhost
 jsanchezconsultant1c.mylabserver.com
 
 [es-filebeat-node]

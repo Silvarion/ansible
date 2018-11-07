@@ -30,3 +30,8 @@
     yum:
       name: elasticsearch
       state: present
+  - name: Enable Elastic Search Service
+    service:
+      name: elasticsearch
+      enabled: yes
+      state: stopped
