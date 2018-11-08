@@ -6,8 +6,8 @@
   become_method: sudo
   connection: ssh
   gather_facts: yes
-  roles:
-    - base
+#  roles:
+#    - es-all-nodes
   tasks:
   - name: Install Java OpenJDK 1.8.0
     yum:

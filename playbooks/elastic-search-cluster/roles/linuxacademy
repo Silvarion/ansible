@@ -15,14 +15,14 @@ hekkamiahmsv7c.mylabserver.com
 hekkamiahmsv8c.mylabserver.com
 
 [webserver]
-hekkamiahmsv1c.mylabserver.com
+hekkamiahmsv5c.mylabserver.com
 
 [es-filebeat-node]
 localhost
-hekkamiahmsv1c.mylabserver.com
+hekkamiahmsv5c.mylabserver.com
 
 [es-logstash-node]
-hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv6c.mylabserver.com
 
 [es-master-node]
 hekkamiahmsv3c.mylabserver.com
@@ -32,4 +32,4 @@ hekkamiahmsv4c.mylabserver.com
 hekkamiahmsv5c.mylabserver.com
 
 [es-kibana-node]
-hekkamiahmsv6c.mylabserver.com
+hekkamiahmsv7c.mylabserver.com
