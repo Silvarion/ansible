@@ -19,7 +19,7 @@
       state: present
   - name: Elastic Search Repo file
     template:
-      src: base/templates/elasticsearch.repo
+      src: elasticsearch/templates/elasticsearch.repo
       dest: /etc/yum.repos.d/elasticsearch.repo
   - name: Logstash Repo file
     template:
