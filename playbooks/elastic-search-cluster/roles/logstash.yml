@@ -1,13 +1,13 @@
 --- # Tryout to deploy a Elastic Search Cluster on CentOS 7
 
-- hosts: es-all-nodes
-  remote_user: cloud_user
+- hosts: es-logstash-node
+  remote_user: ansible
   become: yes
   become_method: sudo
   connection: ssh
   gather_facts: yes
   roles:
-    - base
+    - logstash
   tasks:
   - name: Install Java OpenJDK 1.8.0
     yum:

@@ -1,30 +1,35 @@
+[all-hosts]
+hekkamiahmsv[1:9]c.mylabserver.com
+
 [local]
 localhost
+hekkamiahmsv1c.mylabserver.com
 
 [es-all-nodes]
-jsanchezconsultant1c.mylabserver.com
-jsanchezconsultant2c.mylabserver.com
-jsanchezconsultant3c.mylabserver.com
-jsanchezconsultant4c.mylabserver.com
-jsanchezconsultant5c.mylabserver.com
-jsanchezconsultant6c.mylabserver.com
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
+hekkamiahmsv4c.mylabserver.com
+hekkamiahmsv5c.mylabserver.com
+hekkamiahmsv6c.mylabserver.com
+hekkamiahmsv7c.mylabserver.com
+hekkamiahmsv8c.mylabserver.com
 
 [webserver]
-jsanchezconsultant1c.mylabserver.com
+hekkamiahmsv1c.mylabserver.com
 
 [es-filebeat-node]
 localhost
-jsanchezconsultant1c.mylabserver.com
+hekkamiahmsv1c.mylabserver.com
 
 [es-logstash-node]
-jsanchezconsultant2c.mylabserver.com
+hekkamiahmsv2c.mylabserver.com
 
 [es-master-node]
-jsanchezconsultant3c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
 
 [es-data-node]
-jsanchezconsultant4c.mylabserver.com
-jsanchezconsultant5c.mylabserver.com
+hekkamiahmsv4c.mylabserver.com
+hekkamiahmsv5c.mylabserver.com
 
 [es-kibana-node]
-jsanchezconsultant6c.mylabserver.com
+hekkamiahmsv6c.mylabserver.com

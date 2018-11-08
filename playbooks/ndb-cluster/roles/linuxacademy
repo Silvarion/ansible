@@ -1,25 +1,37 @@
+[all-hosts]
+hekkamiahmsv1c.mylabserver.com
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
+hekkamiahmsv4c.mylabserver.com
+hekkamiahmsv5c.mylabserver.com
+hekkamiahmsv6c.mylabserver.com
+hekkamiahmsv7c.mylabserver.com
+hekkamiahmsv8c.mylabserver.com
+
 [local]
 localhost
-jsanchez-ve6.mylabserver.com
+hekkamiahmsv1c.mylabserver.com
 
 [ndb-cluster]
-jsanchez-ve1.mylabserver.com
-jsanchez-ve2.mylabserver.com
-jsanchez-ve3.mylabserver.com
-jsanchez-ve4.mylabserver.com
-jsanchez-ve5.mylabserver.com
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
+hekkamiahmsv4c.mylabserver.com
+hekkamiahmsv5c.mylabserver.com
+hekkamiahmsv6c.mylabserver.com
+hekkamiahmsv7c.mylabserver.com
 
 [ndb-cluster-mgm]
-jsanchez-ve1.mylabserver.com
-jsanchez-ve2.mylabserver.com
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
 
 [ndb-cluster-data]
-jsanchez-ve3.mylabserver.com
-jsanchez-ve4.mylabserver.com
+hekkamiahmsv4c.mylabserver.com
+hekkamiahmsv5c.mylabserver.com
 
 [ndb-cluster-sql]
-jsanchez-ve1.mylabserver.com
-jsanchez-ve2.mylabserver.com
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
 
 [ndb-cluster-router]
-jsanchez-ve5.mylabserver.com
+hekkamiahmsv6c.mylabserver.com
+hekkamiahmsv7c.mylabserver.com
