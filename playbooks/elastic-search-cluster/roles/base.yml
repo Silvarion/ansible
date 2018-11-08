@@ -29,5 +29,5 @@
     command: export INTERNAL_IP=$(hostname -I)
   - name: Add INTERNAL_IP to the profile
     template:
-      src: /base/templates/internal_ip.sh
+      src: base/templates/internal_ip.sh
       dest: /etc/profile.d/internal_ip.sh
