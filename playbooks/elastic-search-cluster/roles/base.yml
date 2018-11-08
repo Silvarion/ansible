@@ -1,7 +1,7 @@
 --- # Tryout to deploy a Elastic Search Cluster on CentOS 7
 
 - hosts: es-all-nodes
-  remote_user: cloud_user
+  remote_user: ansible
   become: yes
   become_method: sudo
   connection: ssh
