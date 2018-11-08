@@ -19,10 +19,10 @@ visudo
 
 (ansible) ssh-keygen
 
-ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant1c.mylabserver.com
-ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant2c.mylabserver.com
-ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant3c.mylabserver.com
-ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant4c.mylabserver.com
-ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant5c.mylabserver.com
-ssh-copy-id -i "ansible_rsa" ansible@jsanchezconsultant6c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@hekkamiahmsv1c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@hekkamiahmsv2c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@hekkamiahmsv3c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@hekkamiahmsv4c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@hekkamiahmsv5c.mylabserver.com
+ssh-copy-id -i "ansible_rsa" ansible@hekkamiahmsv6c.mylabserver.com
 
