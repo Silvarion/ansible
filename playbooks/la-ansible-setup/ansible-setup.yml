@@ -12,3 +12,10 @@
       create_home: yes
       password: "$6$mysecretsalt$VrpJi.TnKITRI6ccD6ryD49I8vr4Iy2sWRNgzxkogL1DZoX2C.gWDHSb3y7GWGW3XNPZ.Df3YuOM7dg0c41uO."
       state: present
+  - name: Enable passwordless sudo
+    lineinfile:
+      path: /etc/sudoers
+      state: present
+      regexp: '^root  ALL=(ALL) ALL'
+      line: 'root ALL=(ALL) ALL\nansible  ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
