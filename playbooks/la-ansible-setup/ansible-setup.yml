@@ -16,6 +16,6 @@
     lineinfile:
       path: /etc/sudoers
       state: present
-      regexp: '^root[:space:]ALL'
-      insertafter: 'ansible  ALL=(ALL) NOPASSWD: ALL'
+      insertafter: '^root[:space:]ALL'
+      line: 'ansible  ALL=(ALL) NOPASSWD: ALL'
       validate: 'visudo -cf %s'
