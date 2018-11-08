@@ -1,5 +1,3 @@
---- # Tryout to deploy a Elastic Search Cluster on CentOS 7
-
 - hosts: es-all-nodes
   remote_user: ansible
   become: yes
@@ -7,7 +5,7 @@
   connection: ssh
   gather_facts: yes
   roles:
-    - base
+    - es-heartbeat-node
   tasks:
   - name: Install Java OpenJDK 1.8.0
     yum:
@@ -19,9 +17,9 @@
       state: present
   - name: Elastic Search Repo file
     template:
-      src: base/templates/elasticsearch.repo
-      dest: /etc/yum.repos.d/elasticsearch.repo
-  - name: Install Midnight Commander
+      src: beats/templates/es-beats.repo
+      dest: /etc/yum.repos.d/es-beats.repo
+  - name: Install HeartBeat
     yum:
-      name: mc
+      name: heartbeat
       state: present

@@ -7,7 +7,7 @@
   connection: ssh
   gather_facts: yes
   roles:
-    - base
+    - es-node
   tasks:
   - name: Install Java OpenJDK 1.8.0
     yum:
@@ -21,7 +21,12 @@
     template:
       src: base/templates/elasticsearch.repo
       dest: /etc/yum.repos.d/elasticsearch.repo
-  - name: Install Midnight Commander
+  - name: Install Elastic Search
     yum:
-      name: mc
+      name: elasticsearch
       state: present
+  - name: Enable Elastic Search Service
+    service:
+      name: elasticsearch
+      enabled: yes
+      state: stopped
