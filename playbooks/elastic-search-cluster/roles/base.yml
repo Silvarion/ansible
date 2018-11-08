@@ -25,3 +25,5 @@
     yum:
       name: mc
       state: present
+  - name: Export Internal IP address
+    command: export INTERNAL_IP=$(hostname -I)
