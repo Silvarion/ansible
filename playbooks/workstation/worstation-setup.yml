@@ -11,4 +11,7 @@
     yum:
       name: java-1.8.0-openjdk
       state: present
-  - name:
+  - name: Install Midnight Commander
+    yum:
+      name: mc
+      state: present
