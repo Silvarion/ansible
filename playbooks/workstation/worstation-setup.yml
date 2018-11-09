@@ -1,11 +1,11 @@
-- hosts: la-all-hosts
+- hosts: workstation
   remote_user: ansible
   become: yes
   become_method: sudo
   connection: ssh
   gather_facts: yes
-  roles:
-    - local
+#  roles:
+#    - local
   tasks:
   - name: Install Java OpenJDK 1.8.0
     yum:
