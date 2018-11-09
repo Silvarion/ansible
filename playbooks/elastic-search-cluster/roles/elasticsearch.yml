@@ -7,7 +7,7 @@
   connection: ssh
   gather_facts: yes
   roles:
-    - es-node
+    - es-all-nodes
   tasks:
   - name: Install Java OpenJDK 1.8.0
     yum:
@@ -28,5 +28,5 @@
   - name: Enable Elastic Search Service
     service:
       name: elasticsearch
-      enabled: yes
+      enabled: no
       state: stopped
