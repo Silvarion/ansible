@@ -19,5 +19,5 @@
       dest: /etc/yum.repos.d/kibana.repo
   - name: Install Kibana
     yum:
-      name: heartbeat
+      name: kibana
       state: present
