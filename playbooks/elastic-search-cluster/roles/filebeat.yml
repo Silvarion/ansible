@@ -1,11 +1,11 @@
-- hosts: es-all-nodes
+- hosts: es-filebeat-node
   remote_user: ansible
   become: yes
   become_method: sudo
   connection: ssh
   gather_facts: yes
-  roles:
-    - es-filebeat-node
+#  roles:
+#    - es-filebeat-node
   tasks:
   - name: Install Java OpenJDK 1.8.0
     yum:

@@ -4,8 +4,6 @@
   become_method: sudo
   connection: ssh
   gather_facts: yes
-#  roles:
-#    - local
   tasks:
   - name: Install Java OpenJDK 1.8.0
     yum:
@@ -15,3 +13,7 @@
     yum:
       name: mc
       state: present
+  - name: Install Progress Bar for piped commands
+    yum:
+      name: pv
+      state: present 
