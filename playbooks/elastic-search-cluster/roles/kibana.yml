@@ -1,11 +1,9 @@
-- hosts: es-all-nodes
+- hosts: es-kibana-node
   remote_user: ansible
   become: yes
   become_method: sudo
   connection: ssh
   gather_facts: yes
-#  roles:
-#    - es-heartbeat-node
   tasks:
   - name: Install Java OpenJDK 1.8.0
     yum:
@@ -15,11 +13,11 @@
     rpm_key:
       key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
       state: present
-  - name: Elastic Search Repo file
+  - name: Kibana Repo file
     template:
-      src: beats/templates/es-beats.repo
-      dest: /etc/yum.repos.d/es-beats.repo
-  - name: Install HeartBeat
+      src: kibana/templates/kibana.repo
+      dest: /etc/yum.repos.d/kibana.repo
+  - name: Install Kibana
     yum:
       name: heartbeat
       state: present
