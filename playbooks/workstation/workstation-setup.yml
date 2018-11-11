@@ -5,6 +5,24 @@
   connection: ssh
   gather_facts: yes
   tasks:
+  - name: Create user personal user
+    user:
+      name: hekkamiah
+      password: "$6$s0m3S4lt$mR.15dNc2wXg6ardjDxTnmQ/B0XswSg5Z6mC1f2Olw8Rn7g9rrPVKqWjMW3LTwoil7HFkPu6PNzBfj3oFT1TX/"
+      create_home: yes
+      generate_ssh_key: yes
+      ssh_key_file: hekkamiah_rsa
+      ssh_key_passphrase: "$6$4rc4ng3llt$6hwsUSU1/j2iF/dinV0/99PPtOK5mr0td4DjrXIqPYG6Ssvl8yO0cW8Kbrv/ZmoGWEYf0IRwmbkTH3UfRi7TO."
+      ssh_key_type: rsa
+      groups: ["wheel","user"]
+      state: present
+  - name: Enable passwordless sudo
+    lineinfile:
+      path: /etc/sudoers
+      state: present
+      insertafter: '^root[:space:]ALL'
+      line: 'hekkamiah  ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
   - name: Install Java OpenJDK 1.8.0
     yum:
       name: java-1.8.0-openjdk
@@ -16,4 +34,16 @@
   - name: Install Progress Bar for piped commands
     yum:
       name: pv
-      state: present 
+      state: present
+  - name: Install GIT
+    yum:
+      name: git
+      state: present
+  - name: Install vim
+    yum:
+      name: vim
+      state: present
+  - name: Install htop
+    yum:
+      name: htop
+      state: present
