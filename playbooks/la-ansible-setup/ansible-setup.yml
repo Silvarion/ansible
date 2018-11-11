@@ -8,7 +8,7 @@
   - name: Create the ansible user
     user:
       name: ansible
-      groups: ["user","wheel"]
+      groups: ["users","wheel"]
       createhome: yes
       password: "$6$mysecretsalt$VrpJi.TnKITRI6ccD6ryD49I8vr4Iy2sWRNgzxkogL1DZoX2C.gWDHSb3y7GWGW3XNPZ.Df3YuOM7dg0c41uO."
       generate_ssh_key: yes

@@ -14,7 +14,7 @@
       ssh_key_file: hekkamiah_rsa
       ssh_key_passphrase: "$6$4rc4ng3llt$6hwsUSU1/j2iF/dinV0/99PPtOK5mr0td4DjrXIqPYG6Ssvl8yO0cW8Kbrv/ZmoGWEYf0IRwmbkTH3UfRi7TO."
       ssh_key_type: rsa
-      groups: ["wheel","user"]
+      groups: ["wheel","users"]
       state: present
   - name: Enable passwordless sudo
     lineinfile:
