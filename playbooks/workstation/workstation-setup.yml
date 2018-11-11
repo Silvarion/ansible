@@ -9,7 +9,7 @@
     user:
       name: hekkamiah
       password: "$6$s0m3S4lt$mR.15dNc2wXg6ardjDxTnmQ/B0XswSg5Z6mC1f2Olw8Rn7g9rrPVKqWjMW3LTwoil7HFkPu6PNzBfj3oFT1TX/"
-      create_home: yes
+      createhome: yes
       generate_ssh_key: yes
       ssh_key_file: hekkamiah_rsa
       ssh_key_passphrase: "$6$4rc4ng3llt$6hwsUSU1/j2iF/dinV0/99PPtOK5mr0td4DjrXIqPYG6Ssvl8yO0cW8Kbrv/ZmoGWEYf0IRwmbkTH3UfRi7TO."
