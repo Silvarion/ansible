@@ -25,7 +25,8 @@
       insertafter: '^root[:space:]ALL'
       line: 'hekkamiah  ALL=(ALL) NOPASSWD: ALL'
       validate: 'visudo -cf %s'
-  - include_tasks: centos-7-installs.yml
+  - name: Include OS-specific stuff
+    include_tasks: centos-7-installs.yml
     when:
       - ansible_distribution == "CentOS"
       - ansible_distribution_major_version == "7"
