@@ -1,3 +1,4 @@
+--- # Install user and common tools required for development and support.
 - hosts: workstation
   remote_user: ansible
   become: yes
@@ -5,6 +6,7 @@
   connection: ssh
   gather_facts: yes
   tasks:
+--- # User creation
   - name: Create user personal user
     user:
       name: hekkamiah
@@ -23,6 +25,24 @@
       insertafter: '^root[:space:]ALL'
       line: 'hekkamiah  ALL=(ALL) NOPASSWD: ALL'
       validate: 'visudo -cf %s'
+--- # Repos required for some tools
+  - name: Register Microsoft Repo
+    yum_repository:
+      name: ms-dotnet-core
+      file: ms-dotnet-core
+      baseurl: https://packages.microsoft.com/rhel/7/prod/
+      gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+      gpgcheck: yes
+      enabled: yes
+--- # Packages!
+  - name: Install dotnet core dependencies
+    yum:
+      name: ["lttng-ust","libcurl","openssl-libs","krb5-libs","libicu","zlib"]
+      state: present
+  - name: Install dotnet core and powershell core
+    yum:
+      name: ["dotnet-sdk-2.1","powershell"]
+      state: present
   - name: Install Java OpenJDK 1.8.0
     yum:
       name: java-1.8.0-openjdk
