@@ -40,9 +40,9 @@
     yum:
       name: ["lttng-ust","libcurl","openssl-libs","krb5-libs","libicu","zlib"]
       state: present
-  - name: Install dotnet core and powershell core
+  - name: Install powershell core
     yum:
-      name: ["dotnet-sdk-2.1","powershell"]
+      name: ["powershell"]
       state: present
   - name: Install Java OpenJDK 1.8.0
     yum:
