@@ -25,46 +25,7 @@
       insertafter: '^root[:space:]ALL'
       line: 'hekkamiah  ALL=(ALL) NOPASSWD: ALL'
       validate: 'visudo -cf %s'
-# Repos required for some tools
-  - name: Register Microsoft Repo
-    yum_repository:
-      name: ms-dotnet-core
-      file: ms-dotnet-core
-      description: "Microsoft dotnet core repo"
-      baseurl: https://packages.microsoft.com/rhel/7/prod/
-      gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-      gpgcheck: yes
-      enabled: yes
-# Packages!
-  - name: Install dotnet core dependencies
-    yum:
-      name: ["lttng-ust","libcurl","openssl-libs","krb5-libs","libicu","zlib"]
-      state: present
-  - name: Install powershell core
-    yum:
-      name: ["powershell"]
-      state: present
-  - name: Install Java OpenJDK 1.8.0
-    yum:
-      name: java-1.8.0-openjdk
-      state: present
-  - name: Install Midnight Commander
-    yum:
-      name: mc
-      state: present
-  - name: Install Progress Bar for piped commands
-    yum:
-      name: pv
-      state: present
-  - name: Install GIT
-    yum:
-      name: git
-      state: present
-  - name: Install vim
-    yum:
-      name: vim
-      state: present
-  - name: Install htop
-    yum:
-      name: htop
-      state: present
+  - include_tasks: centos-7-installs.yml
+    when:
+      - ansible_distribution == "CentOS"
+      - ansible_distribution_major_version == "7"
