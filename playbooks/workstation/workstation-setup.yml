@@ -30,6 +30,7 @@
     yum_repository:
       name: ms-dotnet-core
       file: ms-dotnet-core
+      description: "Microsoft dotnet core repo"
       baseurl: https://packages.microsoft.com/rhel/7/prod/
       gpgkey: https://packages.microsoft.com/keys/microsoft.asc
       gpgcheck: yes
