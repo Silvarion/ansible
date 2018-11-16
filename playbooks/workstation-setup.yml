@@ -1,0 +1,11 @@
+--- # Install user and common tools required for development and support.
+- hosts: workstation
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  roles:
+    - common
+    - workstation

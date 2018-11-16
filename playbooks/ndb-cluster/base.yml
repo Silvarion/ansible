@@ -1,0 +1,37 @@
+--- # Tryout to deploy a full NDB Cluster on CentOS 7
+
+- hosts: ndb-cluster
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles: 
+    - ndb-cluster
+  tasks:
+  - name: Ensure the mysql group exists
+    group:
+      name: mysql
+      state: present
+  - name: Ensure the mysql user exists
+    user:
+      name: mysql
+      state: present
+  - name: Download MySQL Repository
+    get_url:
+      url: https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+      dest: /tmp/mysql80-community-release-el7-1.noarch.rpm
+  - name: Install MySQL Repo
+    yum:
+      name: /tmp/mysql80-community-release-el7-1.noarch.rpm
+      state: present
+  - name: Make sure MariaDB Libs are removed
+    yum:
+      name: mariadb-libs
+      state: absent
+  - name: Ensure Tar is installed
+    yum:
+      name: tar
+      state: present
+  - include: ndb-cluster-software.yml
+  - include: ndb-cluster-router.yml

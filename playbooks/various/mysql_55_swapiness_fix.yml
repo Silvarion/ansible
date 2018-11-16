@@ -1,0 +1,18 @@
+- hosts: db-servers
+  remote_user: jsanchez
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Install numactl package to be able to set interleave
+      yum:
+        name: numactl
+        state: present
+    # - name:
+    #   lineinfile:
+    #     path: /usr/bin/mysqld_safe
+    #     state: present
+    #     insertafter: '$NOHUP_NICENESS'
+    #     line: 'cmd="/usr/bin/numactl --interleave all $cmd"'
+#        validate: 'visudo -cf %s'
