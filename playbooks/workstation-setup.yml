@@ -12,10 +12,10 @@
     - name: ssh_user
       prompt: "SSH login username"
       default: "ansible"
-    - name: ssh_user
-      prompt: "SSH login password"
-      private: yes
-      encrypt: "sha512_crypt"
-      confirm: yes
-      salt_size: 7
-      when: not private_key
+    # - name: ssh_user
+    #   prompt: "SSH login password"
+    #   private: yes
+    #   encrypt: "sha512_crypt"
+    #   confirm: yes
+    #   salt_size: 7
+    #   when: not private_key
