@@ -1,15 +1,4 @@
 --- # Install user and common tools required for development and support.
-- vars_prompt:
-  - name: ssh_user
-    prompt: "SSH login username"
-    default: "ansible"
-  - name: ssh_user
-    prompt: "SSH login password"
-    private: yes
-    encrypt: "sha512_crypt"
-    confirm: yes
-    salt_size: 7
-
 - hosts: workstation
   remote_user: "{{ ssh_user }}"
   become: yes
@@ -19,3 +8,13 @@
   roles:
     - common
     - workstation
+  vars_prompt:
+    - name: ssh_user
+      prompt: "SSH login username"
+      default: "ansible"
+    - name: ssh_user
+      prompt: "SSH login password"
+      private: yes
+      encrypt: "sha512_crypt"
+      confirm: yes
+      salt_size: 7
