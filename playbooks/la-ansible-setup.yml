@@ -1,0 +1,9 @@
+- hosts: linuxacademy
+  remote_user: cloud_user
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - common
+    - la-ansible

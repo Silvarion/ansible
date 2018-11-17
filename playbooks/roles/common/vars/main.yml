@@ -1,6 +1,6 @@
 vars_prompt:
     - name: "username"
-      prompt: "Username?"
+      prompt: "Enter username"
     - name: "password"
       prompt: "Enter password"
       private: yes
