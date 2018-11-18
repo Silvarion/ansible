@@ -1,4 +1,20 @@
-- hosts: linuxacademy
+- hosts: all-la-hosts
+  vars_prompt:
+  - name: "username"
+    prompt: "Enter username"
+    private: false
+  - name: "password"
+    prompt: "Enter password"
+    private: yes
+    encrypt: "sha512_crypt"
+    confirm: yes
+    salt_size: 7
+  - name: "ansible_passwd"
+    prompt: "Enter ansible password"
+    private: yes
+    encrypt: "sha512_crypt"
+    confirm: yes
+    salt_size: 7
   remote_user: cloud_user
   become: yes
   become_method: sudo

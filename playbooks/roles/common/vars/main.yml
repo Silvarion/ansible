@@ -1,9 +1,0 @@
-vars_prompt:
-    - name: "username"
-      prompt: "Enter username"
-    - name: "password"
-      prompt: "Enter password"
-      private: yes
-      encrypt: "sha512_crypt"
-      confirm: yes
-      salt_size: 7

@@ -1,5 +1,14 @@
 --- # Install user and common tools required for development and support.
 - hosts: workstation
+  vars_prompt:
+  - name: "username"
+    prompt: "Enter username"
+  - name: "password"
+    prompt: "Enter password"
+    private: yes
+    encrypt: "sha512_crypt"
+    confirm: yes
+    salt_size: 7
   remote_user: "{{ ssh_user }}"
   become: yes
   become_method: sudo
@@ -8,14 +17,3 @@
   roles:
     - common
     - workstation
-  vars_prompt:
-    - name: ssh_user
-      prompt: "SSH login username"
-      default: "ansible"
-    # - name: ssh_user
-    #   prompt: "SSH login password"
-    #   private: yes
-    #   encrypt: "sha512_crypt"
-    #   confirm: yes
-    #   salt_size: 7
-    #   when: not private_key

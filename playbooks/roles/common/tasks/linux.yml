@@ -1,19 +1,23 @@
 # User creation
-  - name: Create user personal user
-    user:
-      name: "{{ username }}"
-      password: "{{ password }}"
-      createhome: yes
-      generate_ssh_key: yes
-      ssh_key_file: "/.ssh/{{ username }}_rsa"
-      ssh_key_passphrase: "{{ password }}"
-      ssh_key_type: rsa
-      groups: ["wheel","users"]
-      state: present
-  - name: Enable passwordless sudo
-    lineinfile:
-      path: /etc/sudoers
-      state: present
-      insertafter: '^root[:space:]ALL'
-      line: "{{ username }}  ALL=(ALL) NOPASSWD: ALL"
-      validate: 'visudo -cf %s'
+- name: Create user personal user
+  user:
+    name: "{{ username }}"
+    password: "{{ password }}"
+    createhome: yes
+    generate_ssh_key: yes
+    ssh_key_file: "/.ssh/{{ username }}_rsa"
+    ssh_key_passphrase: "{{ password }}"
+    ssh_key_type: rsa
+    groups: ["wheel","users"]
+    state: present
+- name: Enable passwordless sudo
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    insertafter: '^root[:space:]ALL'
+    line: "{{ username }}  ALL=(ALL) NOPASSWD: ALL"
+    validate: 'visudo -cf %s'
+# - name: Import RedHat playbook
+#   import-playbook:
+#     name: redhat.yml
+#     when: ansible_facts['os_family']|lower == 'redhat'

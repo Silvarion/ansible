@@ -1,0 +1,52 @@
+--- # MySQL Root Password Reset
+- name: Check/Install Python pre-requisites
+  yum: 
+    name: ["gcc","make","python","python-pip","python-devel","mysql-connector-c++*","mysql-connector-python*","mysql-community-client","mysql-community-devel","mysql-community-libs","mysql-community-libs-compat"]
+    state: present
+- name: Make sure MariaDB Libs are removed
+  yum:
+    name: mariadb-libs
+    state: absent
+- name: Check/Install MySQL Libraries
+  yum: 
+    name: ["MySQL-python","mysql-community-client*","mysql-community-common*","mysql-community-devel*","mysql-community-libs*","mysql-community-libs-compat*","mysql++-devel*","mysql-connector-c++*","mysql-connector-python*"]
+    state: present
+- name: Upgrade pip
+  pip:
+    name: pip
+    state: latest
+- name: Check/Install Python Modules
+  pip:
+    name: mysql
+    state: present
+- name: Stop MySQL Service
+  service:
+    name: mysqld
+    state: stopped
+- name: Add skip grant tables
+  lineinfile:
+    path: /etc/my.cnf
+    state: present
+    insertafter: '[mysqld]'
+    line: 'skip-grant-tables'
+- name: Start MySQL without grant tables
+  service:
+    name: mysqld
+    state: started
+- name: Set MySQL Root password
+  #command: mysql -e "UPDATE mysql.user SET authentication_string = PASSWORD('{{ mysqlrootpass }}') WHERE user = 'root';"
+  mysql_user:
+    name: root
+    password: "{{ mysqlrootpass }}"
+    host_all: yes
+    login_host: localhost
+    login_user: root
+- name: Add skip grant tables
+  lineinfile:
+    path: /etc/my.cnf
+    state: absent
+    regexp: 'skip-grant-tables'
+- name: Restart MySQL Service
+  service:
+    name: mysqld
+    state: restarted

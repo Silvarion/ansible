@@ -1,10 +1,1 @@
-vars_prompt:
-    - name: mysqldba
-      prompt: "MySQL DBA username"
-      default: "mysqldba"
-    - name: mysqldbapass
-      prompt: "MySQL DBA password"
-      private: yes
-      encrypt: "sha512_crypt"
-      confirm: yes
-      salt_size: 7
+
