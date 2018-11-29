@@ -1,4 +1,4 @@
-- hosts: db-servers
+- hosts: db-dev-servers
   remote_user: jsanchez
   become: yes
   become_method: sudo
@@ -9,10 +9,19 @@
       yum:
         name: numactl
         state: present
-    # - name:
-    #   lineinfile:
-    #     path: /usr/bin/mysqld_safe
-    #     state: present
-    #     insertafter: '$NOHUP_NICENESS'
-    #     line: 'cmd="/usr/bin/numactl --interleave all $cmd"'
-#        validate: 'visudo -cf %s'
+    - name: Make a backup of the script before changing anything
+      copy:
+        src: /usr/bin/mysqld_safe
+        dest: /usr/bin/mysqld_safe.bck
+    - name: Make sure the NumaCTL entry is not there before adding it
+      lineinfile:
+        path: /usr/bin/mysqld_safe
+        regexp: 'cmd="/usr/bin/numactl --interleave all $cmd"'
+        state: absent
+    - name: Add the NumaCTL entry on mysqld_safe
+      lineinfile:
+        path: /usr/bin/mysqld_safe
+        state: present
+        insertafter: 'cmd="`mysqld_ld_preload_text`$NOHUP_NICENESS"'
+        line: 'cmd="/usr/bin/numactl --interleave all $cmd"'
+        #validate: 'visudo -cf %s'
