@@ -1,25 +1,18 @@
-- hosts: all-la-hosts
+- hosts: all
   vars_prompt:
-  - name: "username"
-    prompt: "Enter username"
-    private: false
-  - name: "password"
-    prompt: "Enter password"
-    private: yes
-    encrypt: "sha512_crypt"
-    confirm: yes
-    salt_size: 7
   - name: "ansible_passwd"
     prompt: "Enter ansible password"
     private: yes
     encrypt: "sha512_crypt"
     confirm: yes
     salt_size: 7
+  - name: "ssh_key_file"
+    prompt: "Enter full path to SSH private key"
+    private: no
   remote_user: cloud_user
   become: yes
   become_method: sudo
   connection: ssh
   gather_facts: yes
   roles:
-    - common
     - la-ansible

@@ -1,0 +1,13 @@
+- name: Kibana Repo file
+  template:
+    src: kibana.repo
+    dest: /etc/yum.repos.d/kibana.repo
+- name: Install Kibana
+  yum:
+    name: kibana
+    state: present
+- name: Enable Kibana Service
+  service:
+    name: kibana
+    enabled: yes
+    state: present

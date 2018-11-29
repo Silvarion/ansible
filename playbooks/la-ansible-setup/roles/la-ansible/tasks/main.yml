@@ -17,3 +17,8 @@
     insertafter: '^root[:space:]ALL'
     line: 'ansible  ALL=(ALL) NOPASSWD: ALL'
     validate: 'visudo -cf %s'
+- name: Copy Authorized SSH Key
+  authorized_key:
+    key: "{{ ssh_key_file }}"
+    user: ansible
+    state: present

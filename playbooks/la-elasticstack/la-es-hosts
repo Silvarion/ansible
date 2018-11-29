@@ -1,6 +1,3 @@
-[all-la-hosts]
-hekkamiahmsv[1:9]c.mylabserver.com
-
 [local]
 localhost
 
@@ -12,6 +9,12 @@ hekkamiahmsv2c.mylabserver.com
 hekkamiahmsv3c.mylabserver.com
 hekkamiahmsv4c.mylabserver.com
 
+[la-kibana]
+hekkamiahmsv5c.mylabserver.com
+
+[la-nginx]
+hekkamiahmsv6c.mylabserver.com
+
 [la-es-data-nodes]
 hekkamiahmsv2c.mylabserver.com
 hekkamiahmsv3c.mylabserver.com
@@ -21,3 +24,4 @@ hekkamiahmsv4c.mylabserver.com
 hekkamiahmsv2c.mylabserver.com
 hekkamiahmsv3c.mylabserver.com
 hekkamiahmsv4c.mylabserver.com
+
