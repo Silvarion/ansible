@@ -1,9 +1,0 @@
-- name: Import Linux-only tasks (yum)
-  import_tasks: 'linux.yml'
-  when: ansible_facts['os_family']|lower == 'redhat' or ansible_facts['os_family']|lower == 'debian'
-- name: Import RedHat-only tasks (yum)
-  import_tasks: 'redhat.yml'
-  when: ansible_facts['os_family']|lower == 'redhat'
-- name: Import Debian-only tasks (apt)
-  import_tasks: 'linux.yml'
-  when: ansible_facts['os_family']|lower == 'debian'

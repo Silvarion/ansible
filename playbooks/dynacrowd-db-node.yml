@@ -25,5 +25,5 @@
   connection: ssh
   gather_facts: yes
   roles: 
-    - common
-    - mysql-57
+    - linux-base
+    - linux-mysql-57

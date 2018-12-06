@@ -1,0 +1,24 @@
+--- # MySQL Server single instance installation
+- name: Install MySQL Repo
+  apt_repository:
+    name: mysql-cluster-7.5-community
+    file: mysql-cluster-7.5-community
+    description: "MySQL Cluster 7.5 Community"
+    baseurl: "http://repo.mysql.com/yum/mysql-cluster-7.5-community/el/{{ ansible_distribution_major_version }}/$basearch/"
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+    gpgcheck: yes
+    enabled: yes
+- name: Copy MySQL GPG Key
+  template:
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+    src: RPM-GPG-KEY-mysql
+    owner: bin
+    group: wheel
+    mode: 0644
+- name: Install Support Packages
+  apt:
+    name: ["mysql-cluster-community-auto-installer","mysql-cluster-community-memcached","mysql-cluster-community-java","mysql-cluster-community-ndbclient-devel"]
+- name: Install MySQL Cluster Community Server
+  apt:
+    name: mysql-cluster-community-server
+    state: latest

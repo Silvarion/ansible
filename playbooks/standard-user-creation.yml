@@ -1,4 +1,4 @@
-- hosts: dynacrowd-db
+- hosts: all
   vars_prompt:
   - name: "username"
     prompt: "Enter username"

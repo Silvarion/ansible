@@ -1,0 +1,20 @@
+--- # Debian Installs
+# Repos required for some tools
+  - name: Register Microsoft Repo
+    apt_repository:
+      name: ms-dotnet-core
+      file: ms-dotnet-core
+      description: "Microsoft dotnet core repo"
+      baseurl: https://packages.microsoft.com/debian/{{ ansible_distribution_major_version }}/prod/
+      gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+      gpgcheck: yes
+      enabled: yes
+# Packages
+  - name: Install dotnet core dependencies
+    apt:
+      name: ["lttng-ust","libcurl","openssl-libs","krb5-libs","libicu","zlib"]
+      state: present
+  - name: Install powershell core
+    apt:
+      name: ["powershell"]
+      state: present

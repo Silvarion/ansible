@@ -1,0 +1,8 @@
+- name: Check/Install Python pre-requisites
+  yum: 
+    name: ["python","python-pip","gcc","make"]
+    state: present
+- name: Upgrade pip
+  pip:
+    name: python-pip
+    state: latest

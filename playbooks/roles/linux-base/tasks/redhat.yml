@@ -1,0 +1,26 @@
+--- # RedHat Installs
+# Packages
+  - name: Install Midnight Commander
+    yum:
+      name: mc
+      state: latest
+  - name: Install Progress Bar for piped commands
+    yum:
+      name: pv
+      state: latest
+  - name: Install GIT
+    yum:
+      name: git
+      state: latest
+  - name: Install vim
+    yum:
+      name: vim
+      state: latest
+  - name: Install nano
+    yum:
+      name: nano
+      state: latest
+  - name: Install htop
+    yum:
+      name: htop
+      state: latest

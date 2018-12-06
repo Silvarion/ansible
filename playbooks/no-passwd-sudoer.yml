@@ -1,0 +1,24 @@
+- hosts: all
+  vars_prompt:
+  - name: "username"
+    prompt: "Enter the new username"
+    private: no
+  - name: "passwd"
+    prompt: "Enter {{ username }} password"
+    private: yes
+    encrypt: "sha512_crypt"
+    confirm: yes
+    salt_size: 7
+  - name: "ssh_key_file"
+    prompt: "Enter full path to SSH private key"
+    private: no
+  - name: "ssh_key_type"
+    prompt: "Enter the SSH key type [rsa]"
+    private: no
+  remote_user: cloud_user
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - passwordless-sudoer

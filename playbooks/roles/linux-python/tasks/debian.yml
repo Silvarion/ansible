@@ -1,0 +1,8 @@
+- name: Check/Install Python pre-requisites
+  apt: 
+    name: ["python","python-pip","gcc","make"]
+    state: present
+- name: Upgrade pip
+  apt:
+    name: python-pip
+    state: latest
