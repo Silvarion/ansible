@@ -1,12 +1,4 @@
 --- # MySQL Server single instance installation
-#   - name: Download MySQL Repository
-#     get_url:
-#       url: https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
-#       dest: /tmp/mysql80-community-release-el7-1.noarch.rpm
-#   - name: Install MySQL Repo
-#     yum:
-#       name: /tmp/mysql80-community-release-el7-1.noarch.rpm
-#       state: present
 - name: Install MySQL Repo
   yum_repository:
     name: mysql-57-yum-entry
