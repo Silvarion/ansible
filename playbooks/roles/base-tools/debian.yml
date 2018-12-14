@@ -1,0 +1,6 @@
+--- # Commmonly Used CLI tools
+- name: Install common utility packages and applications
+  apt:
+    name: ["htop","mc","nano","python-pip","pv","python","vim"]
+    state: present
+    update_cache: yes

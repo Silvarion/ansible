@@ -1,0 +1,12 @@
+--- # Elasticsearch Node playbook. It works for Master/Data Nodes (Configuration required after spin-up)
+- hosts: all
+  remote_user: ec2-user
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - base-tools
+    - elasticsearch-base
+    - elasticsearch-node
+    - elasticsearch-metricbeat

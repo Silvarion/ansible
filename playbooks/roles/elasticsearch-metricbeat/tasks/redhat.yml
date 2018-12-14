@@ -1,0 +1,11 @@
+--- # Install Kibana
+- name: Install MetricBeat
+  yum:
+    name: metricbeat
+    state: latest
+    update_cache: yes
+- name: Disable MetricBeat
+  service:
+    name: metricbeat
+    enabled: no
+    state: stopped

@@ -1,0 +1,26 @@
+# install aws-cli task
+# so in the future
+---
+
+- name: upload aws-cli
+  win_get_url:
+    url: "https://s3.amazonaws.com.cn/aws-cli/AWSCLI64PY3.msi"
+    dest: "c:/installers/AWSCLI64PY3.msi"
+
+- name: Install AWS CLI
+  win_package:
+    path: "C:\\installers\\AWSCLI64PY3.msi"
+    creates: "C:\\Program Files\\Amazon\\AWSCLI"
+    state: present
+
+- name: prepare the powershell tools - install provider NuGet
+  win_shell: Install-PackageProvider NuGet -Force
+
+- name: prepare the powershell tools - Import provider ?!?!
+  win_shell: Import-PackageProvider NuGet -Force
+
+- name: prepare the powershell tools - allow the repository
+  win_shell: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+
+- name: prepare the powershell tools - install the aws module
+  win_shell: Install-Module -Name AWSPowerShell -Confirm:$false

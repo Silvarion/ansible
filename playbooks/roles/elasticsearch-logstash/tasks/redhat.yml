@@ -1,0 +1,21 @@
+--- # Install Kibana
+- name: Install Logstash
+  yum:
+    name: logstash
+    state: latest
+    update_cache: yes
+- name: Install MetricBeat
+  yum:
+    name: metricbeat
+    state: latest
+    update_cache: yes
+- name: Disable Logstash for configuration
+  service:
+    name: logstash
+    enabled: no
+    state: stopped
+- name: Disable MetricBeat
+  service:
+    name: metricbeat
+    enabled: no
+    state: stopped

@@ -1,0 +1,12 @@
+--- # Elasticsearch Logstash instance playbook. (Configuration required after spin-up)
+- hosts: all
+  remote_user: ec2-user
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - base-tools
+    - elasticsearch-base
+    - elasticsearch-logstash
+    - elasticsearch-metricbeat
