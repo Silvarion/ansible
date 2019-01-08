@@ -1,10 +1,15 @@
 - hosts: all
   vars_prompt:
   - name: "username"
+    prompt: "Enter remote user"
+    private: no
+  - name: "password"
+    prompt: "Enter password"
+  - name: "osuser"
     prompt: "Enter the new username"
     private: no
   - name: "passwd"
-    prompt: "Enter {{ username }} password"
+    prompt: "Enter {{ osuser }} password"
     private: yes
     encrypt: "sha512_crypt"
     confirm: yes
@@ -15,7 +20,10 @@
   - name: "ssh_key_type"
     prompt: "Enter the SSH key type [rsa]"
     private: no
-  remote_user: cloud_user
+  vars:
+    - ansible_ssh_pass: "{{ password }}"
+    - ansible_sudo_pass: "{{ password }}"
+  remote_user: "{{ username }}"
   become: yes
   become_method: sudo
   connection: ssh

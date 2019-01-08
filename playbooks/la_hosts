@@ -9,7 +9,7 @@ localhost
 hekkamiahmsv1c.mylabserver.com
 
 [dynacrowd-db]
-hekkamiahmsv7c.mylabserver.com
+hekkamiahmsv2c.mylabserver.com
 
 [ndb-cluster]
 hekkamiahmsv2c.mylabserver.com

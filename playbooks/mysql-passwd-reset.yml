@@ -1,11 +1,19 @@
-- hosts: dynacrowd-db
+- hosts: all
   vars_prompt:
+  - name: "username"
+    prompt: "Enter remote user"
+    private: no
+  - name: "password"
+    prompt: "Enter password"
   - name: mysqlrootpass
     prompt: "MySQL ROOT password"
     private: yes
     confirm: yes
     salt_size: 7
-  remote_user: ansible
+  vars:
+    - ansible_ssh_pass: "{{ password }}"
+    - ansible_sudo_pass: "{{ password }}"
+  remote_user: "{{ username }}"
   become: yes
   become_method: sudo
   connection: ssh
