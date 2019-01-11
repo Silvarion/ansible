@@ -1,11 +1,20 @@
 --- # Tryout to deploy a full NDB Cluster on CentOS 7
-- hosts: ndb-cluster
-  remote_user: ansible
-  become: yes
-  become_method: sudo
-  connection: ssh
-- hosts: ndb-cluster-data
-  remote_user: ansible
+- hosts: all
+  vars_prompt:
+  - name: "prompt_for_user"
+    prompt: "Do you want to provide remote user info [Y/n]?"
+    private: no
+  - name: "username"
+    prompt: "Enter remote user"
+    private: no
+    when: prompt_for_user == "Y" or prompt_for_user == "y"
+  - name: "password"
+    prompt: "Enter password"
+    when: prompt_for_user == "Y" or prompt_for_user == "y"
+  vars:
+    - ansible_ssh_pass: "{{ password }}"
+    - ansible_sudo_pass: "{{ password }}"
+  remote_user: "{{ username }}"
   become: yes
   become_method: sudo
   connection: ssh

@@ -15,4 +15,4 @@
 - name: Install Java OpenJDK 1.8.0
   apt:
     name: java-1.8.0-openjdk
-    state: present
+    state: latest

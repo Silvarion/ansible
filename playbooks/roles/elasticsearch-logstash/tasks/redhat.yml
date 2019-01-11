@@ -1,21 +1,25 @@
---- # Install Kibana
+--- # Install Logstash
 - name: Install Logstash
   yum:
-    name: logstash
-    state: latest
-    update_cache: yes
-- name: Install MetricBeat
-  yum:
-    name: metricbeat
-    state: latest
+    name: logstash-6.5.4
+    state: present
     update_cache: yes
 - name: Disable Logstash for configuration
   service:
     name: logstash
     enabled: no
     state: stopped
-- name: Disable MetricBeat
-  service:
-    name: metricbeat
-    enabled: no
-    state: stopped
+- name: Install Logstash Cloudwatch Plugin
+  shell: /usr/share/logstash/bin/logstash-plugin install logstash-input-cloudwatch
+  register: task_result
+  until: task_result.rc == 0
+  retries: 50
+  delay: 3
+  ignore_errors: yes
+- name: Install Logstash HTTP Plugin
+  shell: /usr/share/logstash/bin/logstash-plugin install logstash-input-http
+  register: task_result
+  until: task_result.rc == 0
+  retries: 50
+  delay: 3
+  ignore_errors: yes

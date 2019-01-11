@@ -1,13 +1,11 @@
---- # Install Elasticsearch and Discovery-EC2 plugin
-- name: Install Elasticsearch
+--- # Install Metricbeat
+- name: Install MetricBeat
   apt:
-    name: elasticsearch
+    name: metricbeat-6.5.4
     state: present
     update_cache: yes
-- name: Install Discovery-EC2 Plugin
-  command: /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch discovery-ec2
-- name: Enable ElasticSearch
+- name: Disable MetricBeat
   service:
-    name: elasticsearch
-    enabled: yes
-    state: started
+    name: metricbeat
+    enabled: no
+    state: stopped

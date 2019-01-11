@@ -1,4 +1,3 @@
---- # Elasticsearch Logstash instance playbook. (Configuration required after spin-up)
 - hosts: all
   vars_prompt:
   - name: "prompt_for_user"
@@ -19,9 +18,7 @@
   become_method: sudo
   connection: ssh
   gather_facts: yes
-  roles:
-    - base-tools
-    - elasticsearch-base
-    - elasticsearch-logstash
-    - elasticsearch-metricbeat
-    - elasticsearch-filebeat
+  roles: 
+    - linux-mysql-base
+    - linux-mysql-cluster-75
+    - linux-mysql-cluster-mgm

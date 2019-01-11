@@ -1,11 +1,11 @@
---- # Install Metricbeat
-- name: Install MetricBeat
-  yum:
-    name: metricbeat-6.5.4
+--- # Install Filebeat
+- name: Install FileBeat
+  apt:
+    name: filebeat-6.5.4
     state: present
     update_cache: yes
 - name: Disable MetricBeat
   service:
-    name: metricbeat
+    name: filebeat
     enabled: no
     state: stopped

@@ -9,8 +9,8 @@
 #     dest: /etc/upc/config-scripts/
 #     state: present
 - name: Import RedHat-only tasks
-- import_tasks: redhat.yml
+  import_tasks: redhat.yml
   when: ansible_os_family|lower == 'redhat'
 - name: Import Debian-only tasks
-- import_tasks: debian.yml
+  import_tasks: debian.yml
   when: ansible_os_family|lower == 'debian'

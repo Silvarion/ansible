@@ -1,6 +1,20 @@
 --- # Elasticsearch Node playbook. It works for Master/Data Nodes (Configuration required after spin-up)
 - hosts: all
-  remote_user: ec2-user
+  vars_prompt:
+  - name: "prompt_for_user"
+    prompt: "Do you want to provide remote user info [Y/n]?"
+    private: no
+  - name: "username"
+    prompt: "Enter remote user"
+    private: no
+    when: prompt_for_user == "Y" or prompt_for_user == "y"
+  - name: "password"
+    prompt: "Enter password"
+    when: prompt_for_user == "Y" or prompt_for_user == "y"
+  vars:
+    - ansible_ssh_pass: "{{ password }}"
+    - ansible_sudo_pass: "{{ password }}"
+  remote_user: "{{ username }}"
   become: yes
   become_method: sudo
   connection: ssh
@@ -10,3 +24,4 @@
     - elasticsearch-base
     - elasticsearch-node
     - elasticsearch-metricbeat
+    - elasticsearch-filebeat

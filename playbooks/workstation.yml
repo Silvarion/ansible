@@ -1,4 +1,4 @@
---- # Elasticsearch Logstash instance playbook. (Configuration required after spin-up)
+--- # Install user and common tools required for development and support.
 - hosts: all
   vars_prompt:
   - name: "prompt_for_user"
@@ -20,8 +20,6 @@
   connection: ssh
   gather_facts: yes
   roles:
-    - base-tools
-    - elasticsearch-base
-    - elasticsearch-logstash
-    - elasticsearch-metricbeat
-    - elasticsearch-filebeat
+    - linux-base
+    - linux-workstation
+    - linux-dotnet-core
