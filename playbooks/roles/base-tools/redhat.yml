@@ -1,6 +1,0 @@
---- # Commonly used CLI tools
-- name: Install common utility packages and applications
-  yum:
-    name: ["htop","mc","nano","python-pip","python","vim"]
-    state: latest
-    update_cache: yes
