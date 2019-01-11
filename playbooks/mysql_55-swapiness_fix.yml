@@ -1,3 +1,4 @@
+<<<<<<< HEAD:playbooks/mysql_55-swapiness_fix.yml
 - hosts: all
   vars_prompt:
   - name: "prompt_for_user"
@@ -38,4 +39,41 @@
         state: present
         insertafter: 'cmd="`mysqld_ld_preload_text`$NOHUP_NICENESS"'
         line: 'cmd="/usr/bin/numactl --interleave all $cmd"'
+=======
+- hosts: db-dev-servers
+  vars_prompt:
+  - name: "username"
+    prompt: "Enter remote user"
+    private: no
+  - name: "password"
+    prompt: "Enter password"
+  vars:
+    - ansible_ssh_pass: "{{ password }}"
+    - ansible_sudo_pass: "{{ password }}"
+  remote_user: "{{ username }}"
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Install numactl package to be able to set interleave
+      yum:
+        name: numactl
+        state: present
+    - name: Make a backup of the script before changing anything
+      copy:
+        src: /usr/bin/mysqld_safe
+        dest: /usr/bin/mysqld_safe.bck
+    - name: Make sure the NumaCTL entry is not there before adding it
+      lineinfile:
+        path: /usr/bin/mysqld_safe
+        regexp: 'cmd="/usr/bin/numactl --interleave all $cmd"'
+        state: absent
+    - name: Add the NumaCTL entry on mysqld_safe
+      lineinfile:
+        path: /usr/bin/mysqld_safe
+        state: present
+        insertafter: 'cmd="`mysqld_ld_preload_text`$NOHUP_NICENESS"'
+        line: 'cmd="/usr/bin/numactl --interleave all $cmd"'
+>>>>>>> 4eda42804c4e6dd8ba40c6f0364d2288e7d582d8:playbooks/lx-mysql_55-swapiness_fix.yml
         #validate: 'visudo -cf %s'

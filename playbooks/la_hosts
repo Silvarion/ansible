@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 [la-hosts]
 hekkamiahmsv[1:8]c.mylabserver.com
@@ -7,3 +8,42 @@ localhost
 
 [workstation]
 hekkamiahmsv1c.mylabserver.com
+=======
+
+[all-la-hosts]
+hekkamiahmsv[1:9]c.mylabserver.com
+
+[local]
+localhost
+
+[la-workstation]
+hekkamiahmsv1c.mylabserver.com
+
+[dynacrowd-db]
+hekkamiahmsv2c.mylabserver.com
+
+[ndb-cluster]
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
+hekkamiahmsv4c.mylabserver.com
+hekkamiahmsv5c.mylabserver.com
+hekkamiahmsv6c.mylabserver.com
+hekkamiahmsv7c.mylabserver.com
+
+[ndb-cluster-mgm]
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
+
+[ndb-cluster-data]
+hekkamiahmsv4c.mylabserver.com
+hekkamiahmsv5c.mylabserver.com
+
+[ndb-cluster-sql]
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
+
+[ndb-cluster-router]
+hekkamiahmsv6c.mylabserver.com
+hekkamiahmsv7c.mylabserver.com
+
+>>>>>>> 4eda42804c4e6dd8ba40c6f0364d2288e7d582d8

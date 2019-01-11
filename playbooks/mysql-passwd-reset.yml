@@ -1,5 +1,6 @@
 - hosts: all
   vars_prompt:
+<<<<<<< HEAD
   - name: "prompt_for_user"
     prompt: "Do you want to provide remote user info [Y/n]?"
     private: no
@@ -10,6 +11,13 @@
   - name: "password"
     prompt: "Enter password"
     when: prompt_for_user == "Y" or prompt_for_user == "y"
+=======
+  - name: "username"
+    prompt: "Enter remote user"
+    private: no
+  - name: "password"
+    prompt: "Enter password"
+>>>>>>> 4eda42804c4e6dd8ba40c6f0364d2288e7d582d8
   - name: mysqlrootpass
     prompt: "MySQL ROOT password"
     private: yes
