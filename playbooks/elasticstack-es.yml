@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  vars_prompt:
+  - name: "ansible_sudo_pass"
+    prompt: "Enter sudo pass"
+    private: yes
+  remote_user: cloud_user
+  connection: local
+  become: yes
+  
+  roles:
+    - elasticstack/repo.yml

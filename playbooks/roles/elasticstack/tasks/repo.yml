@@ -1,0 +1,4 @@
+--- # Select appropriate playbook according to OS family
+# Setup Repo
+- name: Setup/Install for RedHat-based Distros
+  import_tasks: "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}-repo.yml"

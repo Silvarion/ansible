@@ -1,0 +1,15 @@
+--- # Select appropriate playbook according to OS family
+# Variable Configuration
+- name: Set install item fact
+  set_fact:
+    install_item: elasticsearch
+- name: Setup Variables
+  include_tasks: variables.yml
+
+# Setup/Install
+- name: Setup/Install for RedHat-based Distros
+  import_tasks: "installer-{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+  when: ansible_os_family == 'RedHat'
+- name: Setup/Install for Debian-based Distros
+  import_tasks: "installer-{{ ansible_os_family }}.yml"
+  when: ansible_os_family == 'Debian'
