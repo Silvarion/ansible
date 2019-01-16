@@ -1,0 +1,14 @@
+--- # Install Elasticsearch and Discovery-EC2 plugin
+- name: Install {{ install_item }}
+  yum:
+    name: "{{ install_item }}"
+    state: present
+    update_cache: yes
+- name: Install Discovery-EC2 Plugin
+  command: /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch discovery-ec2
+  when: install_item|lower == 'elasticsearch'
+- name: Disable {{ install_item }}
+  service:
+    name: "{{ install_item }}.service"
+    enabled: no
+    state: stopped
