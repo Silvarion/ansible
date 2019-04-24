@@ -10,4 +10,4 @@
   become: yes
   
   roles:
-    - { role: elasticstack.repo.yml }
+    - elasticstack/repo.yml
