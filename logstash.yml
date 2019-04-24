@@ -22,6 +22,6 @@
   roles:
     - base-tools
     - elasticsearch-base
-    - elasticsearch-logstash
-    - elasticsearch-metricbeat
-    - elasticsearch-filebeat
+    - logstash
+    - metricbeat
+    - filebeat

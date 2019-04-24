@@ -1,9 +1,0 @@
---- # Create User, Groups and Register Repo
-- name: Ensure the mysql group exists
-  group:
-    name: mysql
-    state: present
-- name: Ensure the mysql user exists
-  user:
-    name: mysql
-    state: present

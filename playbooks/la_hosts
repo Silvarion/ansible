@@ -1,9 +1,0 @@
-
-[la-hosts]
-hekkamiahmsv[1:8]c.mylabserver.com
-
-[local]
-localhost
-
-[workstation]
-hekkamiahmsv1c.mylabserver.com

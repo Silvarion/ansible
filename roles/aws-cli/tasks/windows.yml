@@ -9,8 +9,8 @@
 
 - name: Install AWS CLI
   win_package:
-    path: "C:\\installers\\AWSCLI64PY3.msi"
-    creates: "C:\\Program Files\\Amazon\\AWSCLI"
+    path: "C:/installers/AWSCLI64PY3.msi"
+    creates: "C:/Program Files/Amazon/AWSCLI"
     state: present
 
 - name: prepare the powershell tools - install provider NuGet

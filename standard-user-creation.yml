@@ -1,0 +1,20 @@
+- hosts: all
+  vars_prompt:
+  - name: "username"
+    prompt: "Enter username"
+    private: no
+  - name: "password"
+    prompt: "Enter password"
+    private: yes
+    encrypt: "sha512_crypt"
+    confirm: yes
+    salt_size: 7
+  - name: "create_ssh"
+    promtp: "Create SSH Key? (Y/n)"
+    private: no
+  - name: "ssh-key"
+    prompt: "Enter SSH key file name"
+    private: no
+    when: "{{ create_ssh }}" == 'Y' or "{{ create_ssh }}" == 'y' or "{{ create_ssh }}" == 'yes'
+  roles:
+    - human-users

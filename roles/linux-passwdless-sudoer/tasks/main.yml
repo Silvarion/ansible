@@ -1,0 +1,23 @@
+
+- name: Create the passwordless sudo user
+  user:
+    name: "{{ osuser }}"
+    groups: ["users","wheel"]
+    createhome: yes
+    password: "{{ passwd }}"
+    generate_ssh_key: no
+    ssh_key_file: "{{ ssh_key_file }}"
+    update_password: always
+    state: present
+- name: Enable passwordless sudo
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    insertafter: '^root[:space:]ALL'
+    line: '"{{ osuser }}"  ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+- name: Copy Authorized SSH Key
+  authorized_key:
+    key: "{{ ssh_key_file }}"
+    user: "{{ osuser }}"
+    state: present
