@@ -1,0 +1,33 @@
+- name: CouchDB Repository Registration for RedHat family OS
+  yum_repository:
+    name: bintray--apache-couchdb-rpm
+    description: ElasticSearch Repo
+    file: bintray-apache-couchdb-rpm
+    baseurl: http://apache.bintray.com/couchdb-rpm/el$releasever/$basearch/
+    gpgcheck: no
+    enabled: yes
+- name: Install pre-requisites
+  yum:
+    name:
+      - autoconf 
+      - autoconf-archive
+      - automake
+      - curl-devel
+      - erlang-asn1
+      - erlang-erts
+      - erlang-eunit
+      - gcc-c++
+      - erlang-os_mon
+      - erlang-reltool
+      - erlang-xmerl
+      - erlang-erl_interface
+      - help2man
+      - js-devel-1.8.5
+      - libicu-devel
+      - libtool perl-Test-Harness
+    state: latest
+- name: Install CouchDB
+  yum:
+    name: CouchDB
+    update_cache: yes
+    state: latest
