@@ -12,15 +12,17 @@
     yum:
       name: git
       state: latest
-  - name: Install vim
+  - name: Install Editors
     yum:
-      name: vim
+      name: 
+        - vim
+        - nano
       state: latest
-  - name: Install nano
+  - name: Install monitoring tools
     yum:
-      name: nano
-      state: latest
-  - name: Install htop
-    yum:
-      name: htop
+      name: 
+        - htop
+        - iotop
+        - atop
+        - netstat
       state: latest
