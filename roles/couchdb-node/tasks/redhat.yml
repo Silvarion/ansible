@@ -24,7 +24,8 @@
       - help2man
       - js-devel-1.8.5
       - libicu-devel
-      - libtool perl-Test-Harness
+      - libtool
+      - perl-Test-Harness
     state: latest
 - name: Install CouchDB
   yum:
