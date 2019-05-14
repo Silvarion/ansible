@@ -8,7 +8,23 @@
     enabled: yes
 - name: Install pre-requisites
   yum:
-    name: ["autoconf","autoconf-archive","automake","curl-devel","erlang-asn1","erlang-erts","erlang-eunit","gcc-c++","erlang-os_mon","erlang-reltool","erlang-xmerl","erlang-erl_interface","help2man","js-devel-1.8.5","libicu-devel","libtool perl-Test-Harness"]
+    name:
+      - autoconf 
+      - autoconf-archive
+      - automake
+      - curl-devel
+      - erlang-asn1
+      - erlang-erts
+      - erlang-eunit
+      - gcc-c++
+      - erlang-os_mon
+      - erlang-reltool
+      - erlang-xmerl
+      - erlang-erl_interface
+      - help2man
+      - js-devel-1.8.5
+      - libicu-devel
+      - libtool perl-Test-Harness
     state: latest
 - name: Install CouchDB
   yum:
