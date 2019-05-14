@@ -27,8 +27,8 @@
       - libtool
       - perl-Test-Harness
     state: latest
+    update_cache: yes
 - name: Install CouchDB
   yum:
-    name: CouchDB
-    update_cache: yes
+    name: couchdb
     state: latest
