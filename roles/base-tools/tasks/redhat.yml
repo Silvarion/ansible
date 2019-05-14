@@ -24,5 +24,4 @@
         - htop
         - iotop
         - atop
-        - netstat
       state: latest
