@@ -9,7 +9,7 @@
 - name: Install pre-requisites
   yum:
     name:
-      - autoconf 
+      - autoconf
       - autoconf-archive
       - automake
       - curl-devel
