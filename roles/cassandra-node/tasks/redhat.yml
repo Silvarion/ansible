@@ -1,0 +1,14 @@
+- name: CouchDB Repository Registration for RedHat family OS
+  yum_repository:
+    name: Apache Cassandra
+    description: Apache Cassandra
+    file: apache-cassandra-repo
+    baseurl: https://www.apache.org/dist/cassandra/redhat/311x/
+    gpgcheck: yes
+    gpgkey: https://www.apache.org/dist/cassandra/KEYS
+    enabled: yes
+- name: Install Cassandra
+  yum:
+    name: cassandra
+    update_cache: yes
+    state: latest
