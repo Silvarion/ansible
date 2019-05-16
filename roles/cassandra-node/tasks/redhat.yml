@@ -20,5 +20,5 @@
 - name: Enable and start Cassandra
   service:
     name: cassandra
-    enabled: yes
-    state: started
+    enabled: no
+    state: stopped
