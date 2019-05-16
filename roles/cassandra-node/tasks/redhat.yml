@@ -3,7 +3,7 @@
     name: Cassandra
     description: Apache Cassandra
     file: apache-cassandra
-    baseurl: https://www.apache.org/dist/cassandra/redhat/30x/
+    baseurl: https://www.apache.org/dist/cassandra/redhat/311x/
     gpgcheck: yes
     repo_gpgcheck: yes
     gpgkey: https://www.apache.org/dist/cassandra/KEYS/
