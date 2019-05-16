@@ -7,8 +7,16 @@
     gpgcheck: yes
     gpgkey: https://www.apache.org/dist/cassandra/KEYS
     enabled: yes
+- name: Update Yum cache
+  yum:
+    name: vi
+    update_cache: yes
 - name: Install Cassandra
   yum:
     name: cassandra
-    update_cache: yes
     state: latest
+- name: Enable and start Cassandra
+  service:
+    name: cassandra
+    enabled: yes
+    state: started
