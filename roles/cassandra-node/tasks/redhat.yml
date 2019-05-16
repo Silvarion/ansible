@@ -6,7 +6,7 @@
     baseurl: https://www.apache.org/dist/cassandra/redhat/311x/
     gpgcheck: yes
     repo_gpgcheck: yes
-    gpgkey: https://www.apache.org/dist/cassandra/KEYS/
+    gpgkey: https://www.apache.org/dist/cassandra/KEYS
     enabled: yes
     state: present
 - name: Update Yum cache
