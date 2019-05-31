@@ -4,3 +4,8 @@
     apt:
       name: snapd
       state: latest
+  - name: Start Snap Service
+    service:
+      name: snapd
+      enabled: yes
+      state: started
