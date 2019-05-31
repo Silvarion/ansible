@@ -1,0 +1,15 @@
+--- # Debian Installs
+# Packages
+  - name: Install Snap Daemon (required for Micro)
+    include_role:
+      name: snapd
+  - name: Install vim
+    apt:
+      name: vim
+      state: latest
+  - name: Install nano
+    apt:
+      name: nano
+      state: latest
+  - name: Install Micro via Snap
+    command: snap install micro --classic

@@ -1,0 +1,6 @@
+--- # Debian Installs
+# Packages
+  - name: Install Snap Daemon
+    apt:
+      name: snapd
+      state: latest

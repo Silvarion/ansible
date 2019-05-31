@@ -20,6 +20,8 @@
   connection: ssh
   gather_facts: yes
   roles:
-    - linux-base
-    - linux-dotnet-core
-    - linux-workstation
+    - base-tools
+    - editors
+    - dotnet-core
+    - python2
+    - python3

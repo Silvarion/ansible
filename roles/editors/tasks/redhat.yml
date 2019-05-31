@@ -1,0 +1,16 @@
+--- # RedHat Installs
+# Packages
+  - name: Install Snap Daemon (required for Micro)
+    include_role:
+      name: snapd
+  - name: Install usual Editors
+    yum:
+      name: 
+        - vim
+        - nano
+      state: latest
+  - name: Install Micro via snap
+    command: snap install micro --classic
+  - name: Install clipboard support
+    yum:
+      name: xclip

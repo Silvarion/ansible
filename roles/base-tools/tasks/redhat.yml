@@ -1,5 +1,9 @@
 --- # RedHat Installs
 # Packages
+  - name: Install EPEL Release
+    yum:
+      name: epel-release
+      state: latest
   - name: Install Midnight Commander
     yum:
       name: mc
@@ -8,20 +12,14 @@
     yum:
       name: pv
       state: latest
-  - name: Install GIT
-    yum:
-      name: git
-      state: latest
-  - name: Install Editors
-    yum:
-      name: 
-        - vim
-        - nano
-      state: latest
   - name: Install monitoring tools
     yum:
       name: 
         - htop
         - iotop
         - atop
+      state: latest
+  - name: Install text browser
+    yum:
+      name: lynx
       state: latest

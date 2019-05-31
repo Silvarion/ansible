@@ -1,0 +1,14 @@
+--- # RedHat Installs
+# Packages
+  - name: EPEL Release
+    yum:
+      name: epel-release
+      state: latest
+  - name: Snap Daemon
+    yum:
+      name: snapd
+      state: latest
+  - name: Create Symbolic link (only for RPM based distros)
+    command: ln -s /var/lib/snapd/snap /snap
+  - name: Enable Snap Socket
+    command: systemctl enable --now snapd.socket
