@@ -53,6 +53,10 @@
     owner: couchdb
     group: couchdb
     mode: 0755
+- name: Clear Logs
+  file:
+    name: /opt/couchdb/var/log/couchdb/couchdb.log
+    state: absent
 - name: Enable and start CouchDB Service
   service:
     name: couchdb
