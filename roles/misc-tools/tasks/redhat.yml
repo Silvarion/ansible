@@ -5,12 +5,16 @@
   copy:
     src: awel-release-7-2.noarch.rpm
     dest: /tmp/awel-release-7-2.noarch.rpm
-    state: present
 - name: Install AWEL Miscellaneous Repository
   yum:
     name: /tmp/awel-release-7-2.noarch.rpm
     state: present
     update_cache: yes
+- name: Enable Misc Repo
+  yum_repository: 
+    file: awel
+    name: awel-misc
+    enabled: yes
 - name: Install Midori Lightweight Browser
   yum:
     name: midori
