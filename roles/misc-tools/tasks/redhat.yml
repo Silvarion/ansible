@@ -2,7 +2,7 @@
 # Packages
 # Repos required for some tools
 - name: Copy RPM for repo installation
-  remote_file:
+  copy:
     src: awel-release-7-2.noarch.rpm
     dest: /tmp/awel-release-7-2.noarch.rpm
     state: present
