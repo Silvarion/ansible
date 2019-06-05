@@ -1,6 +1,6 @@
 - name: CouchDB Repository Registration for RedHat family OS
   yum_repository:
-    name: bintray--apache-couchdb-rpm
+    name: bintray-apache-couchdb-rpm
     description: ElasticSearch Repo
     file: bintray-apache-couchdb-rpm
     baseurl: http://apache.bintray.com/couchdb-rpm/el$releasever/$basearch/
@@ -32,3 +32,29 @@
   yum:
     name: couchdb
     state: latest
+- name: Copy VM Args config file
+  template:
+    src: vm.args
+    dest: /opt/couchdb/etc/vm.args
+    owner: couchdb
+    group: couchdb
+    mode: 0755
+- name: Copy default config file
+  template:
+    src: default.ini
+    dest: /opt/couchdb/etc/default.ini
+    owner: couchdb
+    group: couchdb
+    mode: 0755
+- name: Copy local config file
+  template:
+    src: local.ini
+    dest: /opt/couchdb/etc/local.ini
+    owner: couchdb
+    group: couchdb
+    mode: 0755
+- name: Enable and start CouchDB Service
+  service:
+    name: couchdb
+    state: started
+    enabled: yes
