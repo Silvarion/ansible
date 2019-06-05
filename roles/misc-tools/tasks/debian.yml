@@ -1,0 +1,26 @@
+--- # Debian Installs
+# Packages
+  - name: Install Midnight Commander
+    apt:
+      name: mc
+      state: latest
+  - name: Install Progress Bar for piped commands
+    apt:
+      name: pv
+      state: latest
+  - name: Install GIT
+    apt:
+      name: git
+      state: latest
+  - name: Install vim
+    apt:
+      name: vim
+      state: latest
+  - name: Install nano
+    apt:
+      name: nano
+      state: latest
+  - name: Install htop
+    apt:
+      name: htop
+      state: latest

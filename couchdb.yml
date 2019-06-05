@@ -6,6 +6,7 @@
   gather_facts: yes
   roles:
     - base-tools
+    - misc-tools
     - editors
     - java8-openjdk
     - couchdb-node

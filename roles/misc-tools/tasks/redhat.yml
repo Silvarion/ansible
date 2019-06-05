@@ -1,0 +1,16 @@
+--- # RedHat Installs
+# Packages
+# Repos required for some tools
+- name: Install AWEL Miscellaneous Repository
+  yum:
+    name: awel-release-7-2.noarch.rpm
+    state: present
+    update_cache: yes
+- name: Install Midori Lightweight Browser
+  yum:
+    name: midori
+    state: latest
+- name: Install text browser
+  yum:
+    name: lynx
+    state: latest
