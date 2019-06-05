@@ -1,4 +1,7 @@
 --- # Select appropriate playbook according to OS family
+- name: Install Elasticstack Base first
+  include_role:
+    name: elasticstack-base
 - name: Import RedHat-only tasks
   import_tasks: redhat.yml
   when: ansible_os_family|lower == 'redhat'

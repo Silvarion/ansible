@@ -1,13 +1,7 @@
 --- # Select appropriate playbook according to OS family
-# - name: Create configuration scripts directory
-#   file:
-#     path: /etc/upc/config-scripts
-#     state: directory
-# - name: Import Configuration scripts
-#   copy:
-#     src: "/"
-#     dest: /etc/upc/config-scripts/
-#     state: present
+- name: Install Elasticstack Base first
+  include_role:
+    name: elasticstack-base
 - name: Import RedHat-only tasks
   import_tasks: redhat.yml
   when: ansible_os_family|lower == 'redhat'
