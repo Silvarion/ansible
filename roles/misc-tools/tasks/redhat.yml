@@ -11,10 +11,8 @@
     state: present
     update_cache: yes
 - name: Enable Misc Repo
-  yum_repository: 
-    file: awel
-    name: awel-misc
-    enabled: yes
+  execute: 
+    command: 'yum --enablerepo="awel-misc" repolist'
 - name: Install Midori Lightweight Browser
   yum:
     name: midori
