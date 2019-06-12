@@ -1,0 +1,6 @@
+--- # Install Python Docker module via PIP
+
+- name: Install Ansible via PIP
+  pip:
+    name: docker-py
+    state: latest

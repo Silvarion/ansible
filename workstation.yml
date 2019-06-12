@@ -12,3 +12,6 @@
     - python2
     - python3
     - snapd
+    - pip-ansible
+    - pip-docker-py
+    - pip-molecule
