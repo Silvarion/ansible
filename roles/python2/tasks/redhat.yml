@@ -1,6 +1,6 @@
 - name: Check/Install Python pre-requisites
   yum: 
-    name: ["python","python-pip","gcc","make"]
+    name: ["python","python-pip","python-devel","libevent-devel","gcc","make"]
     state: present
 - name: Upgrade pip
   pip:
