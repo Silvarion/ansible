@@ -1,0 +1,6 @@
+--- # Install Python Molecule module via PIP
+
+- name: Install Ansible via PIP
+  pip:
+    name: molecule
+    state: latest
