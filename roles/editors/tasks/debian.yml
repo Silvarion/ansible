@@ -3,13 +3,33 @@
   - name: Install Snap Daemon (required for Micro)
     include_role:
       name: snapd
+
   - name: Install vim
     apt:
       name: vim
       state: latest
+
   - name: Install nano
     apt:
       name: nano
       state: latest
+
   - name: Install Micro via Snap
     command: snap install micro --classic
+
+  - name: Configure spaces for Vim
+    blockinfile:
+      create: yes
+      backup: yes
+      dest: /etc/vim/vimrc
+      marker: "## {mark} Added by Ansible "
+      insertafter: EOF
+      content: |
+        filetype plugin indent on
+        " On pressing tab, insert 2 spaces
+        set expandtab
+        " show existing tab with 2 spaces width
+        set tabstop=2
+        set softtabstop=2
+        " when indenting with '>', use 2 spaces width
+        set shiftwidth=2
