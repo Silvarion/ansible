@@ -1,0 +1,10 @@
+--- # Windows Installs
+# Packages
+  - name: Download Java OpenJDK 1.8.0
+    win_get_url:
+      url: https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u212-b04/OpenJDK8U-jdk_x64_windows_hotspot_8u212b04.msi
+      dest: C:/temp/OpenJDK8U-jdk_x64_windows_hotspot_8u212b04.msi
+  
+  - name: Install OpenJDK 1.8.0
+    win_package:
+      name: C:/temp/OpenJDK8U-jdk_x64_windows_hotspot_8u212b04.msi

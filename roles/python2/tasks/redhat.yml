@@ -3,6 +3,6 @@
     name: ["python","python-pip","python-devel","libevent-devel","gcc","make"]
     state: present
 - name: Upgrade pip
-  pip:
-    name: python-pip
-    state: latest
+  command: /bin/pip2 install --upgrade pip
+  become: yes
+  become_method: sudo

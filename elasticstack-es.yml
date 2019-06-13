@@ -1,9 +1,8 @@
----
-- name: Install ElasticStack Repo
+--- # Installs the Elasticsearch Repo
 - hosts: all
-  remote_user: ansible
-  connection: ssh
   become: yes
-  
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
   roles:
     - elasticstack-base

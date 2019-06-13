@@ -1,6 +1,6 @@
 --- # Install Python Docker module via PIP
 
 - name: Install Ansible via PIP
-  pip:
-    name: docker-py
-    state: latest
+  command: /usr/local/bin/pip3 install docker-py
+  become: yes
+  become_method: sudo

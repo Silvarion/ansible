@@ -1,17 +1,16 @@
 --- # Install user and common tools required for development and support.
 - hosts: all
-  remote_user: ansible
   become: yes
   become_method: sudo
   connection: ssh
   gather_facts: yes
   roles:
     - base-tools
+    - snapd
     - editors
     - dotnet-core
     - python2
     - python3
-    - snapd
     - pip-ansible
     - pip-docker-py
     - pip-molecule

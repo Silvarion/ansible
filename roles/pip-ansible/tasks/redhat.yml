@@ -1,6 +1,6 @@
 --- # Install Python Ansible module via PIP
 
 - name: Install Ansible via PIP
-  pip:
-    name: ansible
-    state: latest
+  command: /usr/local/bin/pip3 install ansible
+  become: yes
+  become_method: sudo

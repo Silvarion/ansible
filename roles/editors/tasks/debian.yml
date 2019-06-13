@@ -21,8 +21,8 @@
     blockinfile:
       create: yes
       backup: yes
-      dest: /etc/vim/vimrc
-      marker: "## {mark} Added by Ansible "
+      dest: /etc/vimrc
+      marker: '" {mark} Added by Ansible '
       insertafter: EOF
       content: |
         filetype plugin indent on

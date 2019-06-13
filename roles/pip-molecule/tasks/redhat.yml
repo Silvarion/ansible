@@ -1,6 +1,6 @@
 --- # Install Python Molecule module via PIP
 
-- name: Install Ansible via PIP
-  pip:
-    name: molecule
-    state: latest
+- name: Install Molecule via PIP
+  command: /usr/local/bin/pip3 install molecule
+  become: yes
+  become_method: sudo

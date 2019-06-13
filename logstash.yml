@@ -1,6 +1,5 @@
 --- # Elasticsearch Logstash instance playbook. (Configuration required after spin-up)
 - hosts: all
-  remote_user: ansible
   become: yes
   become_method: sudo
   connection: ssh
