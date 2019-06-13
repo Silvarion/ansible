@@ -23,7 +23,7 @@
       create: yes
       backup: yes
       dest: /etc/vimrc
-      marker: "## {mark} Added by Ansible "
+      marker: '" ## {mark} Added by Ansible'
       insertafter: EOF
       content: |
         filetype plugin indent on
