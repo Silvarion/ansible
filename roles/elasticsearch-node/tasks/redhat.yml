@@ -6,7 +6,7 @@
     update_cache: yes
 - name: Install Discovery-EC2 Plugin
   command: /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch discovery-ec2
-- name: Diable ElasticSearch
+- name: Disable ElasticSearch
   service:
     name: elasticsearch
     enabled: no

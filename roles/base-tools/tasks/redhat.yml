@@ -14,8 +14,9 @@
       state: latest
   - name: Install monitoring tools
     yum:
-      name: 
-        - htop
-        - iotop
-        - atop
+      name: "{{ item }}"
       state: latest
+    loop:
+      - htop
+      - iotop
+      - atop

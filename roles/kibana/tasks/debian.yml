@@ -1,8 +1,8 @@
 --- # Install Kibana
 - name: Install Kibana
   apt:
-    name: kibana-6.5.4
-    state: present
+    name: kibana
+    state: latest
     update_cache: yes
 - name: Disable Kibana for configuration
   service:

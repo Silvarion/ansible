@@ -1,8 +1,8 @@
 --- # Install Elasticsearch and Discovery-EC2 plugin
 - name: Install Elasticsearch
   apt:
-    name: elasticsearch-6.5.4
-    state: present
+    name: elasticsearch
+    state: latest
     update_cache: yes
 - name: Install Discovery-EC2 Plugin
   command: /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch discovery-ec2

@@ -4,15 +4,13 @@
     include_role:
       name: snapd
 
-  - name: Install vim
+  - name: Install usual editors
     apt:
-      name: vim
+      name: "{{ item }}"
       state: latest
-
-  - name: Install nano
-    apt:
-      name: nano
-      state: latest
+    loop:
+      - vim
+      - nano
 
   - name: Install Micro via Snap
     command: snap install micro --classic

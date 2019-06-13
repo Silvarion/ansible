@@ -1,7 +1,7 @@
 --- # Install Logstash
 - name: Install Logstash
   apt:
-    name: logstash-6.5.4
+    name: logstash
     state: present
     update_cache: yes
 - name: Disable Logstash for configuration

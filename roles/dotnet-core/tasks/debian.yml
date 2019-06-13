@@ -12,9 +12,17 @@
 # Packages
   - name: Install dotnet core dependencies
     apt:
-      name: ["lttng-ust","libcurl","openssl-libs","krb5-libs","libicu","zlib"]
+      name: "{{ item }}"
       state: present
+    loop:
+      - lttng-ust
+      - libcurl
+      - openssl-libs
+      - krb5-libs
+      - libicu
+      - zlib
+
   - name: Install powershell core
     apt:
-      name: ["powershell"]
+      name: powershell
       state: present

@@ -9,12 +9,21 @@
       gpgkey: https://packages.microsoft.com/keys/microsoft.asc
       gpgcheck: yes
       enabled: yes
+
 # Packages
   - name: Install dotnet core dependencies
     yum:
-      name: ["lttng-ust","libcurl","openssl-libs","krb5-libs","libicu","zlib"]
+      name: "{{ item }}"
       state: present
+    loop:
+      - lttng-ust
+      - libcurl
+      - openssl-libs
+      - krb5-libs
+      - libicu
+      - zlib
+
   - name: Install powershell core
     yum:
-      name: ["powershell"]
+      name: powershell
       state: present

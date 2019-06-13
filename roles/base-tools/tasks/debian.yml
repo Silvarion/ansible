@@ -8,19 +8,11 @@
     apt:
       name: pv
       state: latest
-  - name: Install GIT
+  - name: Install monitoring tools
     apt:
-      name: git
+      name: "{{ item }}"
       state: latest
-  - name: Install vim
-    apt:
-      name: vim
-      state: latest
-  - name: Install nano
-    apt:
-      name: nano
-      state: latest
-  - name: Install htop
-    apt:
-      name: htop
-      state: latest
+    loop:
+      - htop
+      - iotop
+      - atop

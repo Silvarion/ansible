@@ -1,7 +1,7 @@
 --- # Install Metricbeat
 - name: Install MetricBeat
   apt:
-    name: metricbeat-6.5.4
+    name: metricbeat
     state: present
     update_cache: yes
 - name: Disable MetricBeat

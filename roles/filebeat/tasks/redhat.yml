@@ -1,8 +1,8 @@
 --- # Install Filebeat
 - name: Install FileBeat
   yum:
-    name: filebeat-6.5.4
-    state: present
+    name: filebeat
+    state: latest
     update_cache: yes
 - name: Disable MetricBeat
   service:
