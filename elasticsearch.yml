@@ -8,5 +8,5 @@
     - base-tools
     - elasticsearch-base
     - elasticsearch-node
-    - elasticsearch-metricbeat
-    - elasticsearch-filebeat
+    - metricbeat
+    - filebeat

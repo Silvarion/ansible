@@ -1,0 +1,20 @@
+[Unit]
+Description=Cassandra database server for high-scale application
+Documentation=http://cassandra.apache.org/doc/latest/
+After=network.target
+
+[Service]
+Type=forking
+User=cassandra
+ExecStart=/usr/sbin/cassandra -p /var/run/cassandra/cassandra.pid
+PIDFile=/var/run/cassandra/cassandra.pid
+SuccessExitStatus=0 143
+TimeoutSec=300
+StandardOutput=journal
+StandardError=journal
+LimitNOFILE=100000
+LimitMEMLOCK=infinity
+LimitNPROC=63431
+
+[Install]
+WantedBy=multi-user.target

@@ -2,5 +2,5 @@
 # Packages
   - name: Install Java OpenJDK 1.8.0
     apt:
-      name: java-1.8.0-openjdk
+      name: openjdk-8-jdk
       state: present

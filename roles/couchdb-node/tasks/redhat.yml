@@ -38,7 +38,7 @@
 
 - name: Copy VM Args config file
   template:
-    src: vm.args
+    src: vm.j2
     dest: /opt/couchdb/etc/vm.args
     owner: couchdb
     group: couchdb
@@ -46,7 +46,7 @@
 
 - name: Copy default config file
   template:
-    src: default.ini
+    src: default.j2
     dest: /opt/couchdb/etc/default.ini
     owner: couchdb
     group: couchdb
@@ -54,7 +54,7 @@
 
 - name: Copy local config file
   template:
-    src: local.ini
+    src: local.j2
     dest: /opt/couchdb/etc/local.ini
     owner: couchdb
     group: couchdb
