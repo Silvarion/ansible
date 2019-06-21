@@ -6,7 +6,7 @@
   gather_facts: yes
   roles:
     - base-tools
-    - elasticsearch-base
+    - elasticstack-base
     - elasticsearch-node
     - metricbeat
     - filebeat
