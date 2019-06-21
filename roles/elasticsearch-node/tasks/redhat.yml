@@ -4,8 +4,12 @@
     name: elasticsearch-oss
     state: latest
     update_cache: yes
+- name: Check for Discovery-EC2 Plugin
+  command: /usr/share/elasticsearch/bin/elasticsearch-plugin list | grep discovery
+  register: disc_ec2
 - name: Install Discovery-EC2 Plugin
   command: /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch discovery-ec2
+  when: "{{ disc_ec2 }}" == ""
 - name: Disable ElasticSearch
   service:
     name: elasticsearch
