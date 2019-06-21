@@ -9,7 +9,7 @@
   register: disc_ec2
 - name: Install Discovery-EC2 Plugin
   command: /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch discovery-ec2
-  when: "{{ disc_ec2 }}" == ""
+  when: not disc_ec2
 - name: Disable ElasticSearch
   service:
     name: elasticsearch
