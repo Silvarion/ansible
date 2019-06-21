@@ -1,7 +1,7 @@
 --- # Install Elasticsearch and Discovery-EC2 plugin
 - name: Install Elasticsearch
   yum:
-    name: elasticsearch
+    name: elasticsearch-oss
     state: latest
     update_cache: yes
 - name: Install Discovery-EC2 Plugin
