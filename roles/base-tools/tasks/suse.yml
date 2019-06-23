@@ -1,15 +1,15 @@
---- # Debian Installs
+--- # RedHat Installs
 # Packages
   - name: Install Midnight Commander
-    apt:
+    zypper:
       name: mc
       state: latest
   - name: Install Progress Bar for piped commands
-    apt:
+    zypper:
       name: pv
       state: latest
   - name: Install monitoring tools
-    apt:
+    zypper:
       name: "{{ item }}"
       state: latest
     loop:

@@ -1,0 +1,9 @@
+---
+
+- name: run the playbook tasks on the localhost
+  hosts: localhost
+  connection: local
+  become: yes
+  roles:
+    - base-tools
+    - dotnet-core
