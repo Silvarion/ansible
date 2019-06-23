@@ -1,10 +1,15 @@
 --- # Suse Installs
+- name: Check for DotNet Core Repo
+  shell: zypper lr -d | grep microsoft
+  register: msrepoexists
 
 - name: Register Microsoft Repo
   zypper_repository:
     auto_import_keys: yes
+    overwrite_multiple: yes
     repo: https://packages.microsoft.com/config/opensuse/{{ ansible_distribution_major_version }}/prod.repo
     state: present
+  when: msrepoexists.stdout == ""
 
 # Refresh all repos
 - zypper_repository:
@@ -17,14 +22,12 @@
     name: "{{ item }}"
     state: present
   loop:
+    - curl
     - lttng-ust
-    - libcurl
-    - openssl-libs
-    - krb5-libs
     - libicu
     - zlib
 
-- name: Install powershell core
+- name: Install dotnet core
   zypper:
-    name: powershell
+    name: dotnet-sdk-2.2
     state: present
