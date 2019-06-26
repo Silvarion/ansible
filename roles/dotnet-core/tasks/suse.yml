@@ -25,7 +25,21 @@
     - curl
     - lttng-ust
     - libicu
+    - libicu-devel
+    - libicu-devel-32bit
+    - libicu60_2
+    - libunwind
     - zlib
+
+ - name: Copy missing library
+   copy:
+     src: libicu52_1.rpm
+     dest: /tmp/libicu52_1.rpm
+
+ - name: Install missing library
+   zypper:
+     name: /tmp/libicu52_1.rpm
+     state: present
 
 - name: Install dotnet core
   zypper:

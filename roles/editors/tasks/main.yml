@@ -1,7 +1,65 @@
-- name: Import RedHat-only tasks (yum)
-  import_tasks: redhat.yml
-  when: ansible_facts['os_family']|lower == 'redhat'
+# - name: Import RedHat-only tasks (yum)
+#   import_tasks: redhat.yml
+#   when: ansible_facts['os_family']|lower == 'redhat'
 
-- name: Import Debian-only tasks (apt)
-  import_tasks: debian.yml
-  when: ansible_facts['os_family']|lower == 'debian'
+# - name: Import Debian-only tasks (apt)
+#   import_tasks: debian.yml
+#   when: ansible_facts['os_family']|lower == 'debian'
+
+# - name: Import Suse-only tasks (apt)
+#   import_tasks: suse.yml
+#   when: ansible_facts['os_family']|lower == 'suse'
+
+--- # General Installs
+# Packages
+
+- name: Install usual Editors
+  package:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - vim
+    - nano
+
+- name: Create Micro destination directory
+  file:
+    path: /opt/micro
+    state: directory
+    mode: 0755
+
+- name: Get and Extract Micro
+  unarchive:
+    src: https://github.com/zyedidia/micro/releases/download/v1.4.1/micro-1.4.1-linux64.tar.gz
+    remote_src: yes
+    dest: /opt/micro
+    extra_opts: ["--strip-components=1"] 
+
+- name: Create SynLink in /usr/bin
+  file: 
+    src: /opt/micro/micro
+    dest: /usr/bin/micro
+    state: link
+    mode: 0755
+
+- name: Install clipboard support
+  package:
+    name: xclip
+    state: latest
+
+- name: Configure spaces for Vim
+  blockinfile:
+    create: yes
+    backup: yes
+    dest: /etc/vimrc
+    marker: '" ## {mark} Added by Ansible'
+    insertafter: EOF
+    content: |
+      filetype plugin indent on
+      " On pressing tab, insert 2 spaces
+      set expandtab
+      " show existing tab with 2 spaces width
+      set tabstop=2
+      set softtabstop=2
+      " when indenting with '>', use 2 spaces width
+      set shiftwidth=2
+      

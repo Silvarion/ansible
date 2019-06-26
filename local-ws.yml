@@ -6,4 +6,4 @@
   become: yes
   roles:
     - base-tools
-    - dotnet-core
+    - editors

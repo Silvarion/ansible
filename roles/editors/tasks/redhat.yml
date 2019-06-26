@@ -1,8 +1,5 @@
 --- # RedHat Installs
 # Packages
-  - name: Install Snap Daemon (required for Micro)
-    include_role:
-      name: snapd
 
   - name: Install usual Editors
     yum:
@@ -11,6 +8,16 @@
     loop:
       - vim
       - nano
+
+  - name: Get and Extract Micro
+    unarchive:
+      remote_src: https://github.com/zyedidia/micro/releases/download/v1.4.1/micro-1.4.1-linux64.tar.gz
+      creates: /opt/micro/
+      dest: /opt/micro/
+      extra_opts: ["--strip-components=2"] 
+
+  - name: Create SynLink in /usr/bin
+    command: "ln -s /opt/micro/micro /usr/bin/micro"
 
   - name: Install Micro via snap
     command: snap install micro --classic
