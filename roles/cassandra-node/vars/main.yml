@@ -1,0 +1,5 @@
+--- # Variables for the cassandra cluster
+cluster_name: "LinuxAcademy Cassandra"
+cluster_snitch: "GossipingPropertyFileSnitch"
+datacenters: ['ladc1','ladc2']
+racks: ['rack1','rack2']

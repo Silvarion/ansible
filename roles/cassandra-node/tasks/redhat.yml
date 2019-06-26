@@ -1,3 +1,4 @@
+--- # RedHat Tasks for Cassandra
 - name: Cassandra Repository Registration for RedHat family OS
   yum_repository:
     name: Cassandra
@@ -9,14 +10,28 @@
     gpgkey: https://www.apache.org/dist/cassandra/KEYS
     enabled: yes
     state: present
-- name: Update Yum cache
-  yum:
-    name: vi
-    update_cache: yes
+  notify: yum cache update
+
 - name: Install Cassandra
   yum:
     name: cassandra
     state: latest
+
+- name: Copy Config File
+  template:
+    src: cassandra.yaml.j2
+    dest: /etc/cassandra/conf/cassandra.yaml
+
+- name: Copy Cluster Config File
+  template:
+    src: cassandra-rackdc.properties.j2
+    dest: /etc/cassandra/conf/cassandra-rackdc.properties
+
+- name: Remove Topology File
+  file:
+    name: /etc/cassandra/conf/cassandra-topology.properties
+    state: absent
+
 - name: Enable and start Cassandra
   service:
     name: cassandra

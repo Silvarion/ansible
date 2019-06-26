@@ -1,2 +1,13 @@
-name: cassandra-restart
+--- # Handlers
+- name: yum-makecache
+  command: yum makecache -y
+  args:
+    warn: no
+  listen: yum cahe update
+  
+- name: cassandra-restart
+  service:
+    name: cassandra
+    state: restarted
+  listen: restart cassandra
   

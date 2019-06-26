@@ -20,4 +20,4 @@
   connection: ssh
   gather_facts: yes
   roles:
-    - passwordless-sudoer
+    - passwdless-sudoer
