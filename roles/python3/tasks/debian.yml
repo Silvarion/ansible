@@ -1,8 +1,8 @@
 - name: Check/Install Python pre-requisites
   apt: 
     name: ["python3","python3-pip","gcc","make"]
-    state: present
+    state: latest
 - name: Upgrade pip
-  command: /usr/local/bin/pip3 install --upgrade pip
+  command: /usr/bin/pip3 install --upgrade pip
   become: yes
   become_method: sudo
