@@ -1,8 +1,10 @@
+--- # Debian-Only tasks
 - name: Check/Install Python pre-requisites
-  apt: 
-    name: ["python","python-pip","gcc","make"]
+  package: 
+    name: ["python-dev","libevent-dev"]
     state: present
+
 - name: Upgrade pip
-  command: /bin/pip2 install --upgrade pip
+  command: /usr/bin/pip2 install --upgrade pip
   become: yes
   become_method: sudo

@@ -5,5 +5,7 @@
   connection: local
   become: yes
   roles:
+    - python2
+    - python3
     - base-tools
     - editors

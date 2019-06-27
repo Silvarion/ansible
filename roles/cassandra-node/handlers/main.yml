@@ -1,12 +1,18 @@
 --- # Handlers
-- name: yum-makecache
+- name: Update YUM Cache
   command: yum makecache -y
   args:
     warn: no
   listen: yum_cahe_update
   
-- name: apt-update
+- name: Update APT Cache
   command: apt update -y
   args:
     warn: no
   listen: apt_update
+
+- name: Restart Cassandra
+  service:
+    name: cassandra
+    state: restarted
+  listen: restart_cassandra

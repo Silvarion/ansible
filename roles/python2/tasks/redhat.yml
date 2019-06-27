@@ -1,7 +1,10 @@
+--- # Red Hat-only tasks
 - name: Check/Install Python pre-requisites
-  yum: 
-    name: ["python","python-pip","python-devel","libevent-devel","gcc","make"]
+  package: 
+    name: ["python-devel","libevent-devel"]
     state: present
+
+
 - name: Upgrade pip
   command: /bin/pip2 install --upgrade pip
   become: yes

@@ -20,16 +20,33 @@
   template:
     src: cassandra.yaml.j2
     dest: /etc/cassandra/conf/cassandra.yaml
+  notify: restart_cassandra
 
 - name: Copy Cluster Config File
   template:
     src: cassandra-rackdc.properties.j2
     dest: /etc/cassandra/conf/cassandra-rackdc.properties
+  notify: restart_cassandra
+
+- name: Copy JVM Config File
+  template:
+    src: jvm.options.j2
+    dest: /etc/cassandra/conf/jvm.options
+  notify: restart_cassandra
 
 - name: Remove Topology File
   file:
     name: /etc/cassandra/conf/cassandra-topology.properties
     state: absent
+  notify: restart_cassandra
+
+- name: Create Cassandra directory
+  file:
+    path: /var/lib/cassandra
+    owner: cassandra
+    group: cassandra
+    mode: 775
+    state: directory
 
 - name: Create RUN directory
   file:
@@ -38,6 +55,7 @@
     group: cassandra
     mode: 0755
     state: directory
+  notify: restart_cassandra
 
 - name: Copy Service File
   copy:
