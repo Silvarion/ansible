@@ -16,7 +16,7 @@
 
 # These properties are used with GossipingPropertyFileSnitch and will
 # indicate the rack and dc for this node
-dc="{{ datacenters[ {{ groups.cassandra.index(ansible_host) }} % {{ datacenters | length }} ] }}"
+dc="{{ datacenter }}"
 rack=rack1
 #rack="{{ racks }}"
 

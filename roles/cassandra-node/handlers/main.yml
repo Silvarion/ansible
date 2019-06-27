@@ -3,11 +3,10 @@
   command: yum makecache -y
   args:
     warn: no
-  listen: yum cahe update
+  listen: yum_cahe_update
   
-- name: cassandra-restart
-  service:
-    name: cassandra
-    state: restarted
-  listen: restart cassandra
-  
+- name: apt-update
+  command: apt update -y
+  args:
+    warn: no
+  listen: apt_update

@@ -1,9 +1,10 @@
 --- # Elasticsearch Node playbook. It works for Master/Data Nodes (Configuration required after spin-up)
-- hosts: cassandra
+- hosts: all
   become: yes
   become_method: sudo
   connection: ssh
   gather_facts: yes
   roles:
     - base-tools
+    - editors
     - cassandra-node

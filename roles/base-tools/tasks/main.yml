@@ -1,9 +1,27 @@
+--- # Base tools for servers and workstations
 - name: Import RedHat-only tasks (yum)
   import_tasks: redhat.yml
   when: ansible_facts['os_family']|lower == 'redhat'
-- name: Import Debian-only tasks (apt)
-  import_tasks: debian.yml
-  when: ansible_facts['os_family']|lower == 'debian'
-- name: Import Debian-only tasks (apt)
-  import_tasks: suse.yml
-  when: ansible_facts['os_family']|lower == 'suse'
+# - name: Import Debian-only tasks (apt)
+#   import_tasks: debian.yml
+#   when: ansible_facts['os_family']|lower == 'debian'
+# - name: Import Suse-only tasks (apt)
+#   import_tasks: suse.yml
+#   when: ansible_facts['os_family']|lower == 'suse'
+
+- name: Install Midnight Commander
+  yum:
+    name: mc
+    state: latest
+- name: Install Progress Bar for piped commands
+  yum:
+    name: pv
+    state: latest
+- name: Install monitoring tools
+  yum:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - htop
+    - iotop
+    - atop

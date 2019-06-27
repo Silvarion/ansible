@@ -4,19 +4,3 @@
     yum:
       name: epel-release
       state: latest
-  - name: Install Midnight Commander
-    yum:
-      name: mc
-      state: latest
-  - name: Install Progress Bar for piped commands
-    yum:
-      name: pv
-      state: latest
-  - name: Install monitoring tools
-    yum:
-      name: "{{ item }}"
-      state: latest
-    loop:
-      - htop
-      - iotop
-      - atop

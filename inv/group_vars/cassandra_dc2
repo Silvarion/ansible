@@ -1,0 +1,3 @@
+--- # Variables for Cassandra nodes at DC1
+cluster_name: la_cassandra_cluster
+datacenter: ladc2

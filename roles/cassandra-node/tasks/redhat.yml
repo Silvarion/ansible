@@ -10,30 +10,4 @@
     gpgkey: https://www.apache.org/dist/cassandra/KEYS
     enabled: yes
     state: present
-  notify: yum cache update
-
-- name: Install Cassandra
-  yum:
-    name: cassandra
-    state: latest
-
-- name: Copy Config File
-  template:
-    src: cassandra.yaml.j2
-    dest: /etc/cassandra/conf/cassandra.yaml
-
-- name: Copy Cluster Config File
-  template:
-    src: cassandra-rackdc.properties.j2
-    dest: /etc/cassandra/conf/cassandra-rackdc.properties
-
-- name: Remove Topology File
-  file:
-    name: /etc/cassandra/conf/cassandra-topology.properties
-    state: absent
-
-- name: Enable and start Cassandra
-  service:
-    name: cassandra
-    enabled: no
-    state: stopped
+  notify: yum_cache_update

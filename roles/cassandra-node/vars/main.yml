@@ -1,5 +1,5 @@
 --- # Variables for the cassandra cluster
-cluster_name: "LinuxAcademy Cassandra"
+#cluster_name: "{{ group_vars['cluster_name'] }}"
+#datacenter: "{{ group_vars['datacenter'] }}"
+racks: rack1
 cluster_snitch: "GossipingPropertyFileSnitch"
-datacenters: ['ladc1','ladc2']
-racks: ['rack1','rack2']

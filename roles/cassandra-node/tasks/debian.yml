@@ -1,0 +1,21 @@
+--- # Debian/Ubuntu-only installs
+
+- name: Secure HTTP Transport
+  package:
+    name: apt-transport-https
+    state: latest
+
+- name: Import Casasndra Repo GPG Key
+  shell: "wget -q -O - https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -"
+  args:
+    warn: no
+
+- name: Add Cassandra Repo File
+  lineinfile:
+    path: /etc/apt/sources.list.d/cassandra.list
+    create: yes
+    mode: 0660
+    line: "deb http://www.apache.org/dist/cassandra/debian 311x main"
+    state: present
+  notify: apt_update
+  
