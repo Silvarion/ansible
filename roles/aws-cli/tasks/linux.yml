@@ -1,0 +1,7 @@
+--- # Linux AWS CLI Installation
+
+- name: Install AWS CLI
+  package:
+    name: awscli
+    state: latest
+    update_cache: yes

@@ -1,14 +1,14 @@
 --- # Cassandra Linux installation
 - name: Install pre-requisites
-  import_role:
+  include_role:
     name: java8-openjdk
 
 - name: Import RedHat-only tasks (yum)
-  import_tasks: redhat.yml
+  include_tasks: redhat.yml
   when: ansible_facts['os_family']|lower == 'redhat'
 
 - name: Import Debian-only tasks (apt)
-  import_tasks: debian.yml
+  include_tasks: debian.yml
   when: ansible_facts['os_family']|lower == 'debian'
 
 - name: Install Cassandra
@@ -19,24 +19,24 @@
 - name: Copy Config File
   template:
     src: cassandra.yaml.j2
-    dest: /etc/cassandra/conf/cassandra.yaml
+    dest: "{{ cassandra_conf_path[ansible_facts['os_family']|lower] }}/cassandra.yaml"
   notify: restart_cassandra
 
 - name: Copy Cluster Config File
   template:
     src: cassandra-rackdc.properties.j2
-    dest: /etc/cassandra/conf/cassandra-rackdc.properties
+    dest: "{{ cassandra_conf_path }}/cassandra-rackdc.properties"
   notify: restart_cassandra
 
 - name: Copy JVM Config File
   template:
     src: jvm.options.j2
-    dest: /etc/cassandra/conf/jvm.options
+    dest: "{{ cassandra_conf_path }}/jvm.options"
   notify: restart_cassandra
 
 - name: Remove Topology File
   file:
-    name: /etc/cassandra/conf/cassandra-topology.properties
+    name: "{{ cassandra_conf_path }}/cassandra-topology.properties"
     state: absent
   notify: restart_cassandra
 

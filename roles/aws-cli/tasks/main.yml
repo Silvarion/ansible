@@ -1,10 +1,9 @@
 --- # Select appropriate playbook according to OS family
-- name: Import RedHat-only tasks
-  import_tasks: redhat.yml
-  when: ansible_os_family|lower == 'redhat'
-- name: Import Debian-only tasks
-  import_tasks: debian.yml
-  when: ansible_os_family|lower == 'debian'
-- name: Import Windows-only tasks
-  import_tasks: windows.yml
+
+- name: Include Linux-only tasks
+  include_tasks: linux.yml
+  when: ansible_os_family|lower == 'linux'
+
+- name: Include Windows-only tasks
+  include_tasks: windows.yml
   when: ansible_os_family|lower == 'windows'

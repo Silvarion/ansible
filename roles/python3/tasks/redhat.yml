@@ -1,7 +1,10 @@
+--- # Installation steps for Red Hat
+
 - name: Check/Install Python pre-requisites
   yum: 
     name: ["python36","python36-pip","python36-devel","libevent-devel","gcc","make"]
     state: present
+
 - name: Upgrade pip
   command: /usr/local/bin/pip3 install --upgrade pip
   become: yes

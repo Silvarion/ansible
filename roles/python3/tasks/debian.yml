@@ -1,7 +1,10 @@
+--- # Installation steps for Debian/Ubuntu
+
 - name: Check/Install Python pre-requisites
   apt: 
-    name: ["python3","python3-pip","gcc","make"]
+    name: ["python3","python3-pip","python3-dev","libevent-dev","gcc","make"]
     state: latest
+
 - name: Upgrade pip
   command: /usr/bin/pip3 install --upgrade pip
   become: yes

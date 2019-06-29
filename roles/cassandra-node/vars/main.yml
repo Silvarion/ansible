@@ -3,3 +3,6 @@
 #datacenter: "{{ group_vars['datacenter'] }}"
 racks: rack1
 cluster_snitch: "GossipingPropertyFileSnitch"
+cassandra_conf_path:
+  redhat: '/etc/cassandra/conf'
+  debian: '/etc/cassandra'

@@ -17,5 +17,8 @@
     mode: 0660
     line: "deb http://www.apache.org/dist/cassandra/debian 311x main"
     state: present
-  notify: apt_update
   
+- name: Update APT Cache
+  command: apt update -y
+  args:
+    warn: no

@@ -1,6 +1,0 @@
---- # Elasticsearch Repo Registration and base software and requirements
-- name: Install common utility packages and applications
-  apt:
-    name: awscli
-    state: latest
-    update_cache: yes

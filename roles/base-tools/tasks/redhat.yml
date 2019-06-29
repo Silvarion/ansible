@@ -1,6 +1,6 @@
 --- # RedHat Installs
-# Packages
-  - name: Install EPEL Release
-    yum:
-      name: epel-release
-      state: latest
+
+- name: Install EPEL Release
+  yum:
+    name: epel-release
+    state: latest

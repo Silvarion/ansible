@@ -3,7 +3,7 @@
   command: yum makecache -y
   args:
     warn: no
-  listen: yum_cahe_update
+  listen: yum_cache_update
   
 - name: Update APT Cache
   command: apt update -y

@@ -1,4 +1,5 @@
 --- # RedHat Tasks for Cassandra
+
 - name: Cassandra Repository Registration for RedHat family OS
   yum_repository:
     name: Cassandra
@@ -10,4 +11,8 @@
     gpgkey: https://www.apache.org/dist/cassandra/KEYS
     enabled: yes
     state: present
-  notify: yum_cache_update
+
+- name: Update YUM Cache
+  command: yum makecache -y
+  args:
+    warn: no
