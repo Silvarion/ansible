@@ -14,5 +14,6 @@
 
 - name: Update YUM Cache
   command: yum makecache -y
+  become: yes
   args:
     warn: no

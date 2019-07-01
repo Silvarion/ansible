@@ -19,6 +19,7 @@
     state: present
   
 - name: Update APT Cache
-  command: apt update -y
+  command: apt-get update -y
+  become: yes
   args:
     warn: no

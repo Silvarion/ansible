@@ -20,25 +20,21 @@
   template:
     src: cassandra.yaml.j2
     dest: "{{ cassandra_conf_path[ansible_facts['os_family']|lower] }}/cassandra.yaml"
-  notify: restart_cassandra
 
 - name: Copy Cluster Config File
   template:
     src: cassandra-rackdc.properties.j2
     dest: "{{ cassandra_conf_path[ansible_facts['os_family']|lower] }}/cassandra-rackdc.properties"
-  notify: restart_cassandra
 
 - name: Copy JVM Config File
   template:
     src: jvm.options.j2
     dest: "{{ cassandra_conf_path[ansible_facts['os_family']|lower] }}/jvm.options"
-  notify: restart_cassandra
 
 - name: Remove Topology File
   file:
     name: "{{ cassandra_conf_path[ansible_facts['os_family']|lower] }}/cassandra-topology.properties"
     state: absent
-  notify: restart_cassandra
 
 - name: Create Cassandra directory
   file:
