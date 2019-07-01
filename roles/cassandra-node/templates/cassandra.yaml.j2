@@ -421,8 +421,9 @@ seed_provider:
       parameters:
           # seeds is actually a comma-delimited list of addresses.
           # Ex: "<ip1>,<ip2>,<ip3>"
+# Set seeds as list of IPs
           - seeds: "{% for host in groups['cassandra'] -%}
- {{ hostvars[host]['ansible_fqdn'] }}{% if not loop.last %},{% endif %}
+ {{ hostvars[host]['ansible_default_ipv4']['address'] }}{% if not loop.last %},{% endif %}
 {%- endfor %}"
 
 # For workloads with more data than can fit in memory, Cassandra's

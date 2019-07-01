@@ -16,7 +16,7 @@
     name: cassandra
     state: latest
 
-- name: Copy Config File
+- name: Copy Cassandra Config File
   template:
     src: cassandra.yaml.j2
     dest: "{{ cassandra_conf_path[ansible_facts['os_family']|lower] }}/cassandra.yaml"
@@ -25,18 +25,18 @@
 - name: Copy Cluster Config File
   template:
     src: cassandra-rackdc.properties.j2
-    dest: "{{ cassandra_conf_path }}/cassandra-rackdc.properties"
+    dest: "{{ cassandra_conf_path[ansible_facts['os_family']|lower] }}/cassandra-rackdc.properties"
   notify: restart_cassandra
 
 - name: Copy JVM Config File
   template:
     src: jvm.options.j2
-    dest: "{{ cassandra_conf_path }}/jvm.options"
+    dest: "{{ cassandra_conf_path[ansible_facts['os_family']|lower] }}/jvm.options"
   notify: restart_cassandra
 
 - name: Remove Topology File
   file:
-    name: "{{ cassandra_conf_path }}/cassandra-topology.properties"
+    name: "{{ cassandra_conf_path[ansible_facts['os_family']|lower] }}/cassandra-topology.properties"
     state: absent
   notify: restart_cassandra
 
@@ -45,7 +45,7 @@
     path: /var/lib/cassandra
     owner: cassandra
     group: cassandra
-    mode: 775
+    mode: 0777
     state: directory
 
 - name: Create RUN directory
