@@ -8,15 +8,15 @@ hekkamiahmsv3c.mylabserver.com
 [cassandra]
 hekkamiahmsv1c.mylabserver.com
 hekkamiahmsv2c.mylabserver.com
-hekkamiahmsv3c.mylabserver.com
+#hekkamiahmsv3c.mylabserver.com
 #hekkamiahmsv4c.mylabserver.com
 
 [cassandra_dc1]
 hekkamiahmsv1c.mylabserver.com
 hekkamiahmsv2c.mylabserver.com
 
-[cassandra_dc2]
-hekkamiahmsv3c.mylabserver.com
+#[cassandra_dc2]
+#hekkamiahmsv3c.mylabserver.com
 #hekkamiahmsv4c.mylabserver.com
 
 [elasticsearch]

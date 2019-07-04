@@ -1,0 +1,15 @@
+--- # Linux Steps for Misc Tools
+
+- name: Include RedHat-only tasks (yum)
+  include_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
+
+- name: Install Midori Lightweight Browser
+  yum:
+    name: midori
+    state: latest
+- name: Install text browser
+  yum:
+    name: lynx
+    state: latest
+  

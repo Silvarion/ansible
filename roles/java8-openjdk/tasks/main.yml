@@ -1,11 +1,11 @@
-- name: Import RedHat-only tasks (yum)
+- name: Include Java8 RedHat-only tasks (yum)
   include_tasks: redhat.yml
   when: ansible_facts['os_family']|lower == 'redhat'
 
-- name: Import Debian-only tasks (apt)
+- name: Include Java8 Debian-only tasks (apt)
   include_tasks: debian.yml
   when: ansible_facts['os_family']|lower == 'debian'
 
-- name: Import Windows-only tasks
+- name: Include Java8 Windows-only tasks
   include_tasks: windows.yml
   when: ansible_facts['os_family']|lower == 'windows'

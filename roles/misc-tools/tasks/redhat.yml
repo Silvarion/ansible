@@ -1,25 +1,19 @@
 --- # RedHat Installs
-# Packages
 # Repos required for some tools
+
 - name: Copy RPM for repo installation
   copy:
     src: awel-release-7-2.noarch.rpm
     dest: /tmp/awel-release-7-2.noarch.rpm
+
 - name: Install AWEL Miscellaneous Repository
   yum:
     name: /tmp/awel-release-7-2.noarch.rpm
     state: present
     update_cache: yes
+
 - name: Enable Misc Repo
   copy:
     src: awel.repo
     dest: /etc/yum.repos.d/awel.repo
     force: yes
-- name: Install Midori Lightweight Browser
-  yum:
-    name: midori
-    state: latest
-- name: Install text browser
-  yum:
-    name: lynx
-    state: latest
