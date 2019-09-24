@@ -1,0 +1,11 @@
+--- # Elasticsearch Node playbook. It works for Master/Data Nodes (Configuration required after spin-up)
+- hosts: couchdb-cluster
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - base-tools
+    - misc-tools
+    - editors
+    - couchdb-node

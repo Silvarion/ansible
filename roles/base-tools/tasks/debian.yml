@@ -1,0 +1,18 @@
+--- # Debian Installs
+# Packages
+  - name: Install Midnight Commander
+    apt:
+      name: mc
+      state: latest
+  - name: Install Progress Bar for piped commands
+    apt:
+      name: pv
+      state: latest
+  - name: Install monitoring tools
+    apt:
+      name: "{{ item }}"
+      state: latest
+    loop:
+      - htop
+      - iotop
+      - atop
