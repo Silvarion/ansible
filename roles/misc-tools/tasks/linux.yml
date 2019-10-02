@@ -8,8 +8,9 @@
   yum:
     name: midori
     state: latest
+  when: ansible_facts['distribution']|lower == 'centos' and ansible_facts['distribution_major_version'] == '7'
 - name: Install text browser
   yum:
     name: lynx
     state: latest
-  
+  when: ansible_facts['distribution']|lower == 'centos' and ansible_facts['distribution_major_version'] == '7'
