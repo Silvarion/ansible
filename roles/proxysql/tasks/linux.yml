@@ -1,0 +1,15 @@
+---
+- name: Import RedHat-only tasks (yum)
+  import_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat' and ansible_facts['ansible_distribution']|lower != 'amazon'
+- name: Import RedHat-only tasks (yum)
+  import_tasks: amazon.yml
+  when: ansible_facts['os_family']|lower == 'redhat' and ansible_facts['ansible_distribution']|lower == 'amazon'
+- name: Import Debian-only tasks (apt)
+  import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Install ProxySQL
+  package:
+    name: proxysql
+    state: present

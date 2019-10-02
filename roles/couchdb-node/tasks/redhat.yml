@@ -1,7 +1,7 @@
 - name: CouchDB Repository Registration for RedHat family OS
   yum_repository:
     name: bintray-apache-couchdb-rpm
-    description: ElasticSearch Repo
+    description: CouchDB Repo
     file: bintray-apache-couchdb-rpm
     baseurl: http://apache.bintray.com/couchdb-rpm/el$releasever/$basearch/
     gpgcheck: no

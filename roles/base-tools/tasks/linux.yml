@@ -13,6 +13,8 @@
   package:
     name: pv
     state: latest
+  when: ansible_facts['distribution']|lower != 'amazon'
+
 
 - name: Install monitoring tools
   package:
@@ -21,4 +23,13 @@
   loop:
     - htop
     - iotop
+
+- name: Install monitoring tools
+  package:
+    name: "{{ item }}"
+    state: latest
+  loop:
     - atop
+    - nload
+  when: ansible_facts['distribution']|lower != 'amazon'
+  

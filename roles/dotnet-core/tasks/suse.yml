@@ -12,7 +12,8 @@
   when: msrepoexists.stdout == ""
 
 # Refresh all repos
-- zypper_repository:
+- name: Refresh Repos
+  zypper_repository:
     repo: '*'
     runrefresh: yes
   
@@ -31,15 +32,15 @@
     - libunwind
     - zlib
 
- - name: Copy missing library
-   copy:
-     src: libicu52_1.rpm
-     dest: /tmp/libicu52_1.rpm
+- name: Copy missing library
+  copy:
+    src: libicu52_1.rpm
+    dest: /tmp/libicu52_1.rpm
 
- - name: Install missing library
-   zypper:
-     name: /tmp/libicu52_1.rpm
-     state: present
+- name: Install missing library
+  zypper:
+    name: /tmp/libicu52_1.rpm
+    state: present
 
 - name: Install dotnet core
   zypper:

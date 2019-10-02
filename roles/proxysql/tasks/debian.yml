@@ -1,0 +1,11 @@
+---
+- name: Register ProxySQL repo key
+  apt_key:
+    url: https://repo.proxysql.com/ProxySQL/repo_pub_key
+    state: present
+
+- name: Register ProxySQL repo
+  apt_repository:
+    filename: /etc/apt/sources.list.d/proxysql.list
+    repo: deb https://repo.proxysql.com/ProxySQL/proxysql-2.0.x/$(lsb_release -sc)/ ./
+    state: present

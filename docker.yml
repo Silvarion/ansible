@@ -1,13 +1,9 @@
-sudo yum install -y yum-utils \
-  device-mapper-persistent-data \
-  lvm2
-
-sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-  
-sudo yum -y install docker-ce
-
-sudo systemctl start docker && sudo systemctl enable docker
-
-sudo usermod -aG docker cloud_user
+--- # Elasticsearch Kibana instance playbook. (Configuration required after spin-up)
+- hosts: docker
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - base-tools
+    - docker

@@ -1,0 +1,10 @@
+--- # Tasks for RedHat / CentOS
+- name: Register Repo
+  yum_repository:
+    name: proxysqlrepo
+    description: ProxySQL YUM repository
+    file: proxysql
+    baseurl: https://repo.proxysql.com/ProxySQL/proxysql-2.0.x/centos/latest
+    gpgkey: https://repo.proxysql.com/ProxySQL/repo_pub_key
+    gpgcheck: yes
+    enabled: no
