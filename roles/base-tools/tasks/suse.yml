@@ -1,0 +1,7 @@
+--- # SUSE/OpenSUSE tasks
+- name: Register packman Repo
+  command: "zypper ar -cfp 90 http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_{{ ansible_facts['distribution_version'] }}/ packman"
+  ignore_errors: yes
+
+- name: Switch System packages to packman
+  command: zypper dup --from packman --allow-vendor-change

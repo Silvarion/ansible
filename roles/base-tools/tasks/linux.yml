@@ -2,7 +2,11 @@
 
 - name: Include RedHat-only tasks (yum)
   include_tasks: redhat.yml
-  when: ansible_facts['os_family']|lower == 'redhat'
+  when: ansible_facts['distribution']|lower == 'redhat'
+
+- name: Include OpenSUSE-only tasks (yum)
+  include_tasks: suse.yml
+  when: ansible_facts['distribution']|lower == 'opensuse leap'
 
 - name: Install Midnight Commander
   package:
