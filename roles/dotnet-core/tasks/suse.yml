@@ -12,7 +12,7 @@
   when: msrepoexists.stdout == ""
 
 # Refresh all repos
-- name: Refresh Repo Cache
+- name: Refresh Repos
   zypper_repository:
     repo: '*'
     runrefresh: yes

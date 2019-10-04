@@ -33,7 +33,7 @@
   package:
     name: xclip
     state: latest
-  when: ansible_facts['distribution']|lower == 'centos' and ansible_facts['distribution_major_version'] == '7'
+  when: ansible_facts['distribution']|lower != 'amazon'
 
 - name: Configure spaces for Vim
   blockinfile:

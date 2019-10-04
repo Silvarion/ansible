@@ -26,7 +26,7 @@
 #
 # Multiple CouchDBs running on the same machine can use couchdb1@, couchdb2@,
 # etc.
--name couchdb@127.0.0.1
+-name couchdb@{{ inventory_hostname }}
 
 # All nodes must share the same magic cookie for distributed Erlang to work.
 # Comment out this line if you synchronized the cookies by other means (using
@@ -51,3 +51,7 @@
 
 # Set maximum SSL session lifetime to reap terminated replication readers
 -ssl session_lifetime 300
+
+# Erlang port range
+-kernel inet_dist_listen_min 9100
+-kernel inet_dist_listen_max 9200

@@ -2,6 +2,7 @@
 hekkamiahmsv1c.mylabserver.com
 
 [couchdb]
+hekkamiahmsv1c.mylabserver.com
 hekkamiahmsv2c.mylabserver.com
 hekkamiahmsv3c.mylabserver.com
 
@@ -13,7 +14,7 @@ hekkamiahmsv2c.mylabserver.com
 
 [cassandra_dc1]
 hekkamiahmsv1c.mylabserver.com
-hekkamiahmsv2c.mylabserver.com
+#hekkamiahmsv2c.mylabserver.com
 
 #[cassandra_dc2]
 #hekkamiahmsv3c.mylabserver.com
@@ -28,6 +29,17 @@ hekkamiahmsv4c.mylabserver.com
 
 [logstash]
 hekkamiahmsv5c.mylabserver.com
+
+[perconaserver]
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
+
+[proxysql]
+hekkamiahmsv1c.mylabserver.com
+
+[mariadb]
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
 
 [all-la-hosts]
 hekkamiahmsv1c.mylabserver.com

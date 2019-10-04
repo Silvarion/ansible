@@ -1,0 +1,9 @@
+--- # Elasticsearch Kibana instance playbook. (Configuration required after spin-up)
+- hosts: kubernetes
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - base-tools
+    - kubernetes

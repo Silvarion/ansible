@@ -73,8 +73,8 @@ default_engine = couch
 couch = couch_bt_engine
 
 [cluster]
-q=8
-n=3
+q=5
+n=2
 ; placement = metro-dc-a:2,metro-dc-b:1
 
 ; Supply a comma-delimited list of node names that this node should
@@ -82,12 +82,7 @@ n=3
 ; endpoint will return a 404 until the node has successfully contacted at
 ; least one of the members of the seedlist and replicated an up-to-date copy
 ; of the ``_nodes``, ``_dbs``, and ``_users`` system databases.
-; seedlist = {% for host in groups['couchdb-single'] -%}
-; couchdb@{{ hostvars[host]['ansible_fqdn'] }}{% if not loop.last %},{% endif %}
-; {%- endfor %}
-; seedlist = {% for host in groups['couchdb-single'] -%}
-;  couchdb@{{ hostvars[host]['ansible_default_ipv4']['address'] }}{% if not loop.last %},{% endif %}
-; {%- endfor %}
+; seedlist = {% for host in groups['couchdb-single'] -%}couchdb@{{ hostvars[host]['ansible_fqdn'] }}{% if not loop.last %},{% endif %}{%- endfor %}
 
 [chttpd]
 ; These settings affect the main, clustered port (5984 by default).
@@ -97,7 +92,7 @@ backlog = 512
 docroot = ./share/www
 socket_options = [{sndbuf, 262144}, {nodelay, true}]
 server_options = [{recbuf, undefined}]
-require_valid_user = false
+;require_valid_user = false
 ; List of headers that will be kept when the header Prefer: return=minimal is included in a request.
 ; If Server header is left out, Mochiweb will add its own one in.
 prefer_minimal = Cache-Control, Content-Length, Content-Range, Content-Type, ETag, Server, Transfer-Encoding, Vary
@@ -218,7 +213,7 @@ port = 6984
 ; You probably want the settings under [chttpd].
 authentication_db = _users
 authentication_redirect = /_utils/session.html
-require_valid_user = false
+;require_valid_user = false
 timeout = 600 ; number of seconds before automatic logout
 auth_cache_size = 50 ; size is number of cache entries
 allow_persistent_cookies = true ; set to false to disallow persistent cookies

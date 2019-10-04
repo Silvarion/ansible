@@ -1,18 +1,7 @@
---- # RedHat Installs
-# Packages
-  - name: Install Midnight Commander
-    zypper:
-      name: mc
-      state: latest
-  - name: Install Progress Bar for piped commands
-    zypper:
-      name: pv
-      state: latest
-  - name: Install monitoring tools
-    zypper:
-      name: "{{ item }}"
-      state: latest
-    loop:
-      - htop
-      - iotop
-      - atop
+--- # SUSE/OpenSUSE tasks
+- name: Register packman Repo
+  command: "zypper ar -cfp 90 http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_{{ ansible_facts['distribution_version'] }}/ packman"
+  ignore_errors: yes
+
+- name: Switch System packages to packman
+  command: zypper dup --from packman --allow-vendor-change
