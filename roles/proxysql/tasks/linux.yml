@@ -1,10 +1,12 @@
 ---
 - name: Import RedHat-only tasks (yum)
   import_tasks: redhat.yml
-  when: ansible_facts['os_family']|lower == 'redhat' and ansible_facts['ansible_distribution']|lower != 'amazon'
+  when: ansible_facts['os_family']|lower == 'redhat' and ansible_facts['distribution']|lower != 'amazon'
+
 - name: Import RedHat-only tasks (yum)
   import_tasks: amazon.yml
-  when: ansible_facts['os_family']|lower == 'redhat' and ansible_facts['ansible_distribution']|lower == 'amazon'
+  when: ansible_facts['os_family']|lower == 'redhat' and ansible_facts['distribution']|lower == 'amazon'
+
 - name: Import Debian-only tasks (apt)
   import_tasks: debian.yml
   when: ansible_facts['os_family']|lower == 'debian'
@@ -13,3 +15,41 @@
   package:
     name: proxysql
     state: present
+
+- name: Copy config file
+  template:
+    src: proxysql.cnf.j2
+    dest: /etc/proxysql.cnf
+
+- name: Enable and start service
+  service:
+    name: proxysql
+    state: started
+    enabled: yes
+
+- name: MariaDB Stopper/Disabler
+  block:
+    - name: Stop and disable MariDB if it exists
+      service:
+        name: mariadb
+        state: stopped
+        enabled: no
+  ignore_errors: yes
+
+- name: MySQL Stopper/Disabler
+  block:
+    - name: Stop and disable MySQL if  it exists
+      service:
+        name: mysql
+        state: stopped
+        enabled: no
+  ignore_errors: yes
+
+- name: MySQLd Stopper/Disabler
+  block:
+    - name: Stop and disable MySQL Daemon if  it exists
+      service:
+        name: mysqld
+        state: stopped
+        enabled: no
+  ignore_errors: yes

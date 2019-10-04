@@ -4,8 +4,9 @@
   hosts: localhost
   connection: local
   become: yes
+  gather_facts: yes
   roles:
+    - base-tools
     - python2
     - python3
-    - base-tools
     - editors

@@ -30,12 +30,16 @@ hekkamiahmsv4c.mylabserver.com
 [logstash]
 hekkamiahmsv5c.mylabserver.com
 
-[percona-sever]
+[perconaserver]
 hekkamiahmsv2c.mylabserver.com
 hekkamiahmsv3c.mylabserver.com
 
 [proxysql]
 hekkamiahmsv1c.mylabserver.com
+
+[mariadb]
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
 
 [all-la-hosts]
 hekkamiahmsv1c.mylabserver.com

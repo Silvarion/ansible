@@ -9,3 +9,4 @@
     filename: /etc/apt/sources.list.d/proxysql.list
     repo: deb https://repo.proxysql.com/ProxySQL/proxysql-2.0.x/$(lsb_release -sc)/ ./
     state: present
+    enabled: yes
