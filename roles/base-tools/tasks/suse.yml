@@ -3,5 +3,10 @@
   command: "zypper ar -cfp 90 http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_{{ ansible_facts['distribution_version'] }}/ packman"
   ignore_errors: yes
 
+- name: Register GPG Key
+  rpm_key:
+    key: http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_{{ ansible_facts['distribution_version'] }}/repodata/repomd.xml.key
+    state: present
+
 - name: Switch System packages to packman
-  command: zypper dup --from packman --allow-vendor-change
+  command: zypper --non-interactive dist-upgrade --from packman --allow-vendor-change
