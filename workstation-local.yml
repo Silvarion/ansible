@@ -1,0 +1,16 @@
+--- # Install user and common tools required for development and support.
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  connection: local
+  gather_facts: yes
+  roles:
+    - base-tools
+    - snapd
+    - editors
+    - dotnet-core
+    - python2
+    - python3
+    - pip-ansible
+    - pip-docker-py
+    - pip-molecule

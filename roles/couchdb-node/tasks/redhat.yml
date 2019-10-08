@@ -68,5 +68,5 @@
 - name: Enable and start CouchDB Service
   service:
     name: couchdb
-    state: started
+    state: stopped
     enabled: yes

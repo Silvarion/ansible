@@ -82,8 +82,11 @@ n=3
 ; endpoint will return a 404 until the node has successfully contacted at
 ; least one of the members of the seedlist and replicated an up-to-date copy
 ; of the ``_nodes``, ``_dbs``, and ``_users`` system databases.
-seedlist = {% for host in groups['couchdb'] -%}
- couchdb@{{ hostvars[host]['ansible_fqdn'] }}{% if not loop.last %},{% endif %}
+; seedlist = {% for host in groups['couchdb-cluster'] -%}
+; couchdb@{{ hostvars[host]['ansible_fqdn'] }}{% if not loop.last %},{% endif %}
+; {%- endfor %}
+seedlist = {% for host in groups['couchdb-cluster'] -%}
+ couchdb@{{ hostvars[host]['ansible_default_ipv4']['address'] }}{% if not loop.last %},{% endif %}
 {%- endfor %}
 
 [chttpd]
