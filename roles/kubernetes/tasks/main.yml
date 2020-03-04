@@ -1,3 +1,6 @@
+- name: Import Required Docker Role
+  import_role: 
+    name: docker
 - name: Import RedHat-only tasks (yum)
   import_tasks: redhat.yml
   when: ansible_facts['os_family']|lower == 'redhat'

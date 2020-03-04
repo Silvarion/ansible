@@ -1,19 +1,12 @@
-- name: Set SELinux to permissive mode
+- name: Set SELinux Context for Kubernetes
   command: setenforce 0
-
-- name: Set SELinux to permissive persistently
-  command: sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinu
 
 - name: Enable the br_netfilter module for cluster communication - Step 1
   command: modprobe br_netfilter
 
-- name: Enable the br_netfilter module for cluster communication - Step 2
+- name: Allow Kubernetes to modify ip tables
   command: echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
 
 - name: Disable SWAP
   command: swapoff -a
 
-- name: Add Docker Repo
-  yum_repository:
-    name: docker-ce.repo
-    

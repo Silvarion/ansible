@@ -30,6 +30,17 @@ hekkamiahmsv4c.mylabserver.com
 [logstash]
 hekkamiahmsv5c.mylabserver.com
 
+[k8master]
+hekkamiahmsv1c.mylabserver.com
+
+[k8nodes]
+hekkamiahmsv2c.mylabserver.com
+hekkamiahmsv3c.mylabserver.com
+
+[kubernetes:children]
+k8master
+k8nodes
+
 [perconaserver]
 hekkamiahmsv2c.mylabserver.com
 hekkamiahmsv3c.mylabserver.com

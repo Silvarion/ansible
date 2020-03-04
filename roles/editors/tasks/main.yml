@@ -6,8 +6,9 @@
     name: "{{ item }}"
     state: latest
   loop:
-    - vim
+    - emacs
     - nano
+    - vim
 
 - name: Create Micro destination directory
   file:
