@@ -1,0 +1,25 @@
+# Import tasks for Red Hat distros (CentOS, RHEL, OEL)
+- name: Import RedHat-only tasks (yum)
+  import_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
+
+# Install latest version
+- name: Install Lynis
+  package:
+    name: lynis
+    state: latest
+    update_cache: yes
+
+# Execute command
+- name: Run Lynis Audit
+  command: "lynis audit system"
+
+# Retrieve logs
+- name: Retrieve Lynis report log
+  fetch:
+    src: /var/log/{{ item }}
+    dest: /tmp/{{ inventory_hostname }}-{{ ansible_date_time.date }}-{{ item }}
+    flat: yes
+  loop:
+    - lynis.log
+    - lynis-report.dat
