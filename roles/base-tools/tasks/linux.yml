@@ -13,11 +13,11 @@
     name: mc
     state: latest
 
-- name: Install Progress Bar for piped commands
-  package:
-    name: pv
-    state: latest
-  when: ansible_facts['distribution']|lower != 'amazon'
+# - name: Install Progress Bar for piped commands
+#   package:
+#     name: pv
+#     state: latest
+#   when: ansible_facts['distribution']|lower != 'amazon'
 
 
 - name: Install monitoring tools

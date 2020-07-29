@@ -6,6 +6,9 @@ hekkamiahmsv1c.mylabserver.com
 hekkamiahmsv2c.mylabserver.com
 hekkamiahmsv3c.mylabserver.com
 
+[couchdb-single]
+hekkamiahmsv2c.mylabserver.com
+
 [cassandra]
 hekkamiahmsv1c.mylabserver.com
 hekkamiahmsv2c.mylabserver.com
@@ -38,6 +41,7 @@ hekkamiahmsv3c.mylabserver.com
 hekkamiahmsv1c.mylabserver.com
 
 [mariadb]
+hekkamiahmsv1c.mylabserver.com
 hekkamiahmsv2c.mylabserver.com
 hekkamiahmsv3c.mylabserver.com
 
