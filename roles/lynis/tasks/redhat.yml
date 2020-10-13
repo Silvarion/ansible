@@ -1,0 +1,12 @@
+# Add repository
+  - name: Register CISOfy Lynis Repo
+    yum_repository:
+      name: cisofy-lynis
+      file: cisofy-lynis
+      description: "CISOfy Software - Lynis package"
+      baseurl: https://packages.cisofy.com/community/lynis/rpm/
+      gpgkey: https://packages.cisofy.com/keys/cisofy-software-rpms-public.key
+      gpgcheck: yes
+      enabled: yes
+
+
