@@ -1,0 +1,13 @@
+---
+- name: Import RedHat-only tasks (yum)
+  import_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
+
+- name: Import Debian-only tasks (apt)
+  import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Install Percona Xtrabackup
+  package:
+    name: percona-xtrabackup
+    state: present

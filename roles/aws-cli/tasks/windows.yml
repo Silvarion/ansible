@@ -4,12 +4,12 @@
 
 - name: upload aws-cli
   win_get_url:
-    url: "https://s3.amazonaws.com.cn/aws-cli/AWSCLI64PY3.msi"
-    dest: "c:/installers/AWSCLI64PY3.msi"
+    url: "https://awscli.amazonaws.com/AWSCLIV2.msi"
+    dest: "c:/installers/AWSCLIV2.msi"
 
 - name: Install AWS CLI
   win_package:
-    path: "C:/installers/AWSCLI64PY3.msi"
+    path: "C:/installers/AWSCLIV2.msi"
     creates: "C:/Program Files/Amazon/AWSCLI"
     state: present
 

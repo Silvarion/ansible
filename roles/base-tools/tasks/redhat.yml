@@ -4,3 +4,4 @@
   yum:
     name: epel-release
     state: latest
+  when: ansible_facts['distribution']|lower != 'amazon'

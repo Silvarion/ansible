@@ -1,9 +1,9 @@
 --- # Cassandra Linux installation
-- name: Install pre-requisites
+- name: Install Cassandra pre-requisites
   include_role:
     name: java8-openjdk
 
-- name: Import RedHat-only tasks (yum)
+- name: Import Cassandra-Node RedHat-only tasks (yum)
   include_tasks: redhat.yml
   when: ansible_facts['os_family']|lower == 'redhat'
 
@@ -51,7 +51,6 @@
     group: cassandra
     mode: 0755
     state: directory
-  notify: restart_cassandra
 
 - name: Copy Service File
   copy:

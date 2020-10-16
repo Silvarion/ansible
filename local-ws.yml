@@ -1,11 +1,12 @@
 ---
 
-- name: run the playbook tasks on the localhost
+- name: Run the playbook tasks on the localhost
   hosts: localhost
   connection: local
   become: yes
+  gather_facts: yes
   roles:
+    - base-tools
     - python2
     - python3
-    - base-tools
     - editors

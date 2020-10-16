@@ -1,0 +1,12 @@
+--- # ProxySQL playbook
+- hosts: proxysql
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - base-tools
+    - misc-tools
+    - editors
+    - proxysql
+    - mariadb

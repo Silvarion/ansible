@@ -6,8 +6,9 @@
     name: "{{ item }}"
     state: latest
   loop:
-    - vim
+    - emacs
     - nano
+    - vim
 
 - name: Create Micro destination directory
   file:
@@ -22,7 +23,7 @@
     dest: /opt/micro
     extra_opts: ["--strip-components=1"] 
 
-- name: Create SynLink in /usr/bin
+- name: Create SymLink in /usr/bin
   file: 
     src: /opt/micro/micro
     dest: /usr/bin/micro
@@ -33,6 +34,7 @@
   package:
     name: xclip
     state: latest
+  when: ansible_facts['distribution']|lower != 'amazon'
 
 - name: Configure spaces for Vim
   blockinfile:

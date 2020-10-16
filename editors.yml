@@ -1,0 +1,12 @@
+--- # Install user and common tools required for development and support.
+- hosts: all
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - base-tools
+    - editors
+    - python2
+    - python3
+    - pip-ansible
