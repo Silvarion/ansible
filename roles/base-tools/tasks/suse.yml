@@ -1,0 +1,18 @@
+--- # RedHat Installs
+# Packages
+  - name: Install Midnight Commander
+    zypper:
+      name: mc
+      state: latest
+  - name: Install Progress Bar for piped commands
+    zypper:
+      name: pv
+      state: latest
+  - name: Install monitoring tools
+    zypper:
+      name: "{{ item }}"
+      state: latest
+    loop:
+      - htop
+      - iotop
+      - atop

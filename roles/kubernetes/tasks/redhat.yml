@@ -1,0 +1,17 @@
+--- # Red Hat acctions for Kubernetes
+- name: Disable SELinux enforcing
+  shell: "setenforce 0"
+
+- name: Persist the SELinux disabling
+  command: "sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux"
+
+- name: Disabling Swap on all nodes
+  shell: swapoff -a
+
+- name: Commenting Swap entries in /etc/fstab
+  replace:
+    path: /etc/fstab
+    regexp: '(^/.*swap*)'
+    replace: '# \1'
+
+  

@@ -1,0 +1,31 @@
+--- # Installs IP tables legacy binaries and enables them
+
+- name: Install legacy iptables
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - iptables
+    - arptables
+    - ebtables
+
+- name: Update alternatives to force use of legacy iptables libraries
+  alternatives:
+    name: iptables
+    path: /usr/sbin/iptables-legacy
+
+- name: Update alternatives to force use of legacy ip6tables libraries
+  alternatives:
+    name: ip6tables
+    path: /usr/sbin/ip6tables-legacy
+
+- name: Update alternatives to force use of legacy arptables libraries
+  alternatives:
+    name: arptables
+    path: /usr/sbin/arptables-legacy
+
+- name: Update alternatives to force use of legacy ebtables libraries
+  alternatives:
+    name: ebtables
+    path: /usr/sbin/ebtables-legacy
+

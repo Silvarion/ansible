@@ -1,0 +1,27 @@
+--- # Install Docker on CentOS
+
+- name: Add Docker Repo
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+
+- name: Install Yum-Utils
+  yum:
+    name: yum-utils
+    state: present
+    update-cache: yes
+
+- name: Install Docker Engine
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - docker-ce 
+    - docker-ce-cli 
+    - containerd.io
+
+- name: Enable and start Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes

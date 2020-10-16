@@ -1,4 +1,4 @@
---- # Docker Playbook
+--- # Kubernets Playbook
 - hosts: all
   become: yes
   become_method: sudo
@@ -6,4 +6,6 @@
   gather_facts: yes
   roles:
     - base-tools
+    - editors
     - docker
+    - kubernetes

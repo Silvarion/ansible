@@ -1,0 +1,6 @@
+--- # Elasticsearch Repo Registration and base software and requirements
+- name: Install AWS CLI
+  yum:
+    name: awscli
+    state: latest
+    update_cache: yes

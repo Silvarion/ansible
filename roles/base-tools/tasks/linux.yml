@@ -3,11 +3,15 @@
 - name: Include RedHat-only tasks (yum)
   include_tasks: redhat.yml
   when: ansible_facts['os_family']|lower == 'redhat'
+- name: Include Debian-only tasks (apt)
+  include_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
 
 - name: Install Midnight Commander
   package:
     name: mc
     state: latest
+    update_cache: yes
 
 - name: Install Progress Bar for piped commands
   package:
