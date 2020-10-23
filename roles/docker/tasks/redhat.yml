@@ -9,7 +9,7 @@
   yum:
     name: yum-utils
     state: present
-    update-cache: yes
+    update_cache: yes
 
 - name: Install Docker Engine
   yum:

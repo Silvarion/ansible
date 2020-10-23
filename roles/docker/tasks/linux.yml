@@ -1,0 +1,29 @@
+---
+
+- name: Import RedHat-only tasks (yum)
+  import_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
+
+- name: Import Debian-only tasks (apt)
+  import_tasks: debian.yml
+  when: ansible_facts['distribution']|lower == 'debian'
+
+- name: Import Ubuntu-only tasks (apt)
+  import_tasks: ubuntu.yml
+  when: ansible_facts['distribution']|lower == 'ubuntu'
+
+- name: Set proxy settings for Docker if required
+  template:
+    src: docker-http-proxy.conf.j2
+    dest: /etc/systemd/system/docker.service.d/http-proxy.conf
+  when: ansible_facts['env']['HTTPS_PROXY'] != ''
+
+- name: Reload Systemd Daemon
+  systemd:
+    daemon_reload: yes
+
+- name: Enable Docker CE service on startup
+  service:
+    name: docker
+    state: started
+    enabled: yes

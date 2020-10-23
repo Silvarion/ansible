@@ -1,15 +1,10 @@
----
+--- # Select appropriate playbook according to OS family
 
-- name: Import RedHat-only tasks (yum)
-  import_tasks: redhat.yml
-  when: ansible_facts['os_family']|lower == 'redhat'
+- name: Include Linux-only tasks
+  include_tasks: linux.yml
+  when: ansible_system|lower == 'linux'
 
-- name: Import Debian-only tasks (apt)
-  import_tasks: debian.yml
-  when: ansible_facts['os_family']|lower == 'debian'
+- name: Include Windows-only tasks
+  include_tasks: windows.yml
+  when: ansible_os_family|lower == 'windows'
 
-- name: Enable Docker CE service on startup
-  service:
-    name: docker
-    state: started
-    enabled: yes

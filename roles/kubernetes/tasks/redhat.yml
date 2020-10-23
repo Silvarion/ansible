@@ -1,6 +1,7 @@
 --- # Red Hat acctions for Kubernetes
 - name: Disable SELinux enforcing
   shell: "setenforce 0"
+  ignore_errors: yes
 
 - name: Persist the SELinux disabling
   command: "sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux"
@@ -14,4 +15,27 @@
     regexp: '(^/.*swap*)'
     replace: '# \1'
 
-  
+- name: Kubernetes Repository Registration for Red Hat Systems
+  yum_repository:
+    name: kubernetes
+    description: Kubernetes Repo for RedHat/Centos
+    file: kubernetes
+    baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+    gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    gpgcheck: yes
+    enabled: yes
+
+- name: Install Kubernetes packages
+  yum:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - kubelet
+    - kubeadm
+    - kubectl
+
+- name: Enable and Start Kubelet
+  service:
+    name: kubelet
+    state: started
+    enabled: yes
