@@ -4,7 +4,7 @@
     name: proxysqlrepo
     description: ProxySQL YUM repository
     file: proxysql
-    baseurl: https://repo.proxysql.com/ProxySQL/proxysql-2.0.x/centos/$releasever
+    baseurl: "https://repo.proxysql.com/ProxySQL/proxysql-2.0.x/centos/{{ ansible_facts['distribution_major_version'] }}"
     gpgkey: https://repo.proxysql.com/ProxySQL/repo_pub_key
     gpgcheck: yes
     enabled: yes
