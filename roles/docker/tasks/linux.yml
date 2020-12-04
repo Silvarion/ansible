@@ -17,6 +17,7 @@
     src: docker-http-proxy.conf.j2
     dest: /etc/systemd/system/docker.service.d/http-proxy.conf
   when: ansible_facts['env']['HTTPS_PROXY'] != ''
+  ignore_errors: yes
 
 - name: Reload Systemd Daemon
   systemd:

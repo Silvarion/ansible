@@ -6,6 +6,6 @@
   gather_facts: yes
   roles:
     - base-tools
-    - editor
+    - editors
     - docker
     - kubernetes
