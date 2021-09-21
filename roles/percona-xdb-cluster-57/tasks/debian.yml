@@ -1,0 +1,16 @@
+---
+- name: Register LSB Release
+  command: lsb_release -sc
+  register: lsb_release_info
+
+- name: Download Percona MySQL Repository Package
+  get_url: 
+    url: "https://repo.percona.com/apt/percona-release_latest.{{ lsb_release_info }}_all.deb"
+    dest: /tmp/percona-release_latest.{{ lsb_release_info }}_all.deb
+
+- name: Install Percona MySQL Repository Package
+  command: dpkg -i "/tmp/percona-release_latest.{{ lsb_release_info }}_all.deb"
+
+- name: Enable Percona MySQL Repository
+  command: percona-release setup ps57
+

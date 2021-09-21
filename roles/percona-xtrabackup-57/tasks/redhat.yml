@@ -5,4 +5,4 @@
     state: present
 
 - name: Enable the Repository
-  command: percona-release setup ps80
+  command: percona-release setup ps57

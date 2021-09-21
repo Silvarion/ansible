@@ -10,4 +10,4 @@
 - name: Install Percona Xtrabackup
   package:
     name: percona-xtrabackup
-    state: present
+    state: latest
