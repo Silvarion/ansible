@@ -1,8 +1,0 @@
----
-- name: Install Percona MySQL Repository
-  package:
-    name: https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-    state: present
-
-- name: Enable the Repository
-  command: percona-release setup ps57

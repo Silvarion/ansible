@@ -5,7 +5,7 @@
     state: present
 
 - name: Enable the Repository
-  command: percona-release setup ps57
+  command: percona-release setup pxc-57
 
 - name: Refresh YUM Cache
   yum:

@@ -12,5 +12,5 @@
   command: dpkg -i "/tmp/percona-release_latest.{{ lsb_release_info }}_all.deb"
 
 - name: Enable Percona MySQL Repository
-  command: percona-release setup ps57
+  command: percona-release setup pxc-57
 

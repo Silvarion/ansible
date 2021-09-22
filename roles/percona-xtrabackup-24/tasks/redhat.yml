@@ -1,0 +1,11 @@
+---
+- name: Install Percona MySQL Repository
+  package:
+    name: https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+    state: present
+
+- name: Enable the MySQL Server Repository
+  command: percona-release setup ps-57
+
+- name: Enable the Xtrabackup Repository
+  command: percona-release setup pxb-24

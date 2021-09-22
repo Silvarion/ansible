@@ -1,4 +1,4 @@
---- # Percona MySQL XDB Cluster playbook
+--- # ProxySQL playbook
 - hosts: all
   become: yes
   become_method: sudo
@@ -7,5 +7,5 @@
   roles:
     - base-tools
     - editors
-    - percona-xdb-cluster-57
     - percona-xtrabackup-24
+    

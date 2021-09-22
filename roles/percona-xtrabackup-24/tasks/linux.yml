@@ -1,6 +1,6 @@
 ---
 - name: Import Centos-only tasks (yum)
-  import_tasks: centos7.yml
+  import_tasks: redhat.yml
   when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
 
 - name: Import RedHat-only tasks (yum)
@@ -11,13 +11,12 @@
   import_tasks: debian.yml
   when: ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "9"
 
-- name: Install Percona MySQL XDB Cluster Server
-  package: 
-    name:  Percona-XtraDB-Cluster-full-57
-    state: present
+- name: Remove previous installations
+  package:
+    name: percona-xtrabackup
+    state: absent
 
-- name: Enable and start the service
-  service:
-    name: mysql
-    state: started
-    enabled: yes
+- name: Install Percona Xtrabackup
+  package:
+    name: percona-xtrabackup-24
+    state: latest
