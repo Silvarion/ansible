@@ -8,5 +8,7 @@
   command: percona-release setup pxc-57
 
 - name: Refresh YUM Cache
-  yum:
-    update_cache: yes
+  command: yum makecache
+
+- name: Set SELinux to Permissive
+  command: setenforce 0

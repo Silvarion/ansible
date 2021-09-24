@@ -16,8 +16,8 @@
     name:  Percona-XtraDB-Cluster-full-57
     state: present
 
-- name: Enable and start the service
+- name: Diable and stop the MySQL service
   service:
     name: mysql
-    state: started
-    enabled: yes
+    state: stopped
+    enabled: no

@@ -9,3 +9,6 @@
 
 - name: Refresh YUM Cache
   command: yum makecache
+
+- name: Set SELinux to Permissive
+  command: setenforce 0
