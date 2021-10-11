@@ -11,6 +11,11 @@
   import_tasks: debian.yml
   when: ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "9"
 
+- name: Remove Percona MySQL Server 5.7 packages
+  package: 
+    name:  Percona-Server-*-57
+    state: absent
+
 - name: Install Percona MySQL XDB Cluster Server
   package: 
     name:  Percona-XtraDB-Cluster-full-57
